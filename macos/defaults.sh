@@ -1,7 +1,7 @@
-COMPUTER_NAME="Neo"
+COMPUTER_NAME="MDMMBP_M4"
 LANGUAGES=(en nl)
-LOCALE="en_US@currency=EUR"
-MEASUREMENT_UNITS="Centimeters"
+LOCALE="en_US@currency=USD"
+MEASUREMENT_UNITS="Inches"
 SCREENSHOTS_FOLDER="${HOME}/Screenshots"
 
 # Topics
