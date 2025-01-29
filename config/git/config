@@ -1,9 +1,9 @@
 [user]
-	name = Martin Mercer
-	email = martinmercer1@gmail.com
+	name = insertYourNameHere
+	email = insertYourEmailHere
 
 [github]
-	user = m-mrcr
+	user = insertYourUsernameHere
 
 [core]
 	excludesfile = ~/.config/git/ignore
