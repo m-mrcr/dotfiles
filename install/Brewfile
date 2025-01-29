@@ -49,3 +49,4 @@ brew "webp"
 
 # misc
 brew "grip"
+brew "mas"
