@@ -12,9 +12,9 @@ It mainly targets macOS systems (should install on e.g. Ubuntu as well for many 
 - Updated macOS defaults
 - Well-organized and easy to customize
 - The installation and runcom setup is
-  [tested weekly on real Ubuntu and macOS machines](https://github.com/webpro/dotfiles/actions)
+  [tested weekly on real Ubuntu and macOS machines](https://github.com/m-mrcr/dotfiles/actions)
   (Ventura/13, Sonomo/14, Sequoia/15) using [a GitHub Action](./.github/workflows/dotfiles-installation.yml)
-- Supports both Apple Silicon (M1) and Intel chips
+- Supports both Apple Silicon (M-Series) and Intel chips
 
 ## Packages Overview
 
@@ -38,7 +38,7 @@ The Xcode Command Line Tools includes `git` and `make` (not available on stock m
 1. Install this repo with `curl` available:
 
 ```bash
-bash -c "`curl -fsSL https://raw.githubusercontent.com/webpro/dotfiles/master/remote-install.sh`"
+bash -c "`curl -fsSL https://raw.githubusercontent.com/m-mrcr/dotfiles/main/remote-install.sh`"
 ```
 
 This will clone or download this repo to `~/.dotfiles` (depending on the availability of `git`, `curl` or `wget`).
