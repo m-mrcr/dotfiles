@@ -46,7 +46,7 @@ This will clone or download this repo to `~/.dotfiles` (depending on the availab
 1. Alternatively, clone manually into the desired location:
 
 ```bash
-git clone https://github.com/webpro/dotfiles.git ~/.dotfiles
+git clone https://github.com/m-mrcr/dotfiles.git ~/.dotfiles
 ```
 
 2. Use the [Makefile](./Makefile) to install the [packages listed above](#packages-overview), and symlink
@@ -58,7 +58,7 @@ make
 ```
 
 Running `make` with the Makefile is idempotent. The installation process in the Makefile is tested on every push and every week in this
-[GitHub Action](https://github.com/webpro/dotfiles/actions). Please file an issue in this repo if there are errors.
+[GitHub Action](https://github.com/m-mrcr/dotfiles/actions). Please file an issue in this repo if there are errors.
 
 ## Post-Installation
 

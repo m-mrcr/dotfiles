@@ -1,4 +1,5 @@
 cask "1password"
+cask "appcleaner"
 cask "arc"
 cask "anytype"
 cask "fantastical"
