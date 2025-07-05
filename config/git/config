@@ -1,6 +1,6 @@
 [user]
 	name = Martin Mercer
-	email = martinmercer1@gmail.com
+	email = 28820023+m-mrcr@users.noreply.github.com
 
 [github]
 	user = m-mrcr
@@ -112,3 +112,8 @@
 
 [advice]
 	detachedHead = false
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
