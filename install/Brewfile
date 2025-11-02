@@ -12,6 +12,9 @@ brew "ripgrep"              # Fast text/code search
 brew "fzf"                  # Fuzzy finder for interactive search
 brew "zoxide"               # Smarter cd command
 
+# --- Testing ---
+brew "bats-core"            # Bash Automated Testing System
+
 # --- Development & Languages ---
 brew "git"                  # Version control
 brew "gh"                   # GitHub CLI
