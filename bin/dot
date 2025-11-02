@@ -4,6 +4,21 @@ BIN_NAME=$(basename "$0")
 COMMAND_NAME=$1
 SUB_COMMAND_NAME=$2
 
+if [ -z "${DOTFILES_DIR:-}" ]; then
+  SCRIPT_SOURCE="${BASH_SOURCE[0]:-$0}"
+  if command -v readlink >/dev/null 2>&1; then
+    while [ -L "$SCRIPT_SOURCE" ]; do
+      LINK_TARGET=$(readlink "$SCRIPT_SOURCE")
+      if [[ "$LINK_TARGET" == /* ]]; then
+        SCRIPT_SOURCE="$LINK_TARGET"
+      else
+        SCRIPT_SOURCE="$(dirname "$SCRIPT_SOURCE")/$LINK_TARGET"
+      fi
+    done
+  fi
+  DOTFILES_DIR=$(cd "$(dirname "$SCRIPT_SOURCE")/.." && pwd)
+fi
+
 sub_help () {
   echo "Usage: $BIN_NAME <command>"
   echo
