@@ -1,52 +1,55 @@
 tap "homebrew/bundle"
 tap "lotyp/homebrew-formulae"
 
-# core/dotfiles
-brew "bats-core"
-brew "coreutils"
-brew "duti"
-brew "lotyp/formulae/dockutil"
-brew "nano"
-brew "stow"
-brew "thefuck"
-brew "tmux"
-brew "topgrade"
+# ─── Homebrew Formulae ─────────────────────────────────────────────
+# --- Shell & Navigation ---
+brew "atuin"                # Sync and search shell history
+brew "bat"                  # cat with syntax highlighting
+brew "coreutils"            # GNU replacements for basic Unix tools
+brew "eza"                  # Modern ls with icons and colors
+brew "fd"                   # Fast file finder
+brew "ripgrep"              # Fast text/code search
+brew "fzf"                  # Fuzzy finder for interactive search
+brew "zoxide"               # Smarter cd command
 
-# fs/network
-brew "bat"
-brew "croc"
-brew "httpie"
-brew "ssh-copy-id"
-brew "tree"
-brew "unar"
-brew "wget"
-brew "zoxide"
+# --- Development & Languages ---
+brew "git"                  # Version control
+brew "gh"                   # GitHub CLI
+brew "git-delta"            # Syntax-highlighted diffs for Git
+brew "jq"                   # Parse and transform JSON data
+brew "python@3.13"          # Python 3.13 interpreter
+brew "node"                 # Node.js runtime
+brew "rust"                 # Rust programming language toolchain
+brew "shellcheck"           # Linter for shell scripts
+brew "stow"                 # Manage dotfiles with symlinks
+brew "starship"             # Beautiful and minimal shell prompt
+brew "tmux"                 # Terminal multiplexer (split panes/sessions)
+brew "thefuck"              # Correct mistyped shell commands
+brew "topgrade"             # Auto-update all tools
 
-# search/grep/diff
-brew "fd"
-brew "fzf"
-brew "git-delta"
-brew "gnu-sed"
-brew "grep"
-brew "jq"
-brew "psgrep"
-brew "ripgrep"
-brew "the_silver_searcher"
+# --- System & Automation ---
+brew "dockutil"             # Manage macOS Dock items via CLI
+brew "mas"                  # Mac App Store CLI for scripting installs
+brew "wget"                 # Command-line downloader
+brew "codex"                # ChatGPT Code Agent
 
-# languages/tools
-brew "gh"
-brew "n"
-brew "python"
-brew "ruby"
-brew "rust"
-brew "shellcheck"
+# --- Media & Graphics ---
+brew "ffmpeg"               # Video/audio conversion toolkit
+brew "imagemagick"          # Image processing utilities
+brew "webp"                 # Convert images to/from WebP format
+brew "yt-dlp"               # Download videos from YouTube and many other sites
 
-# media
-brew "ffmpeg"
-brew "imagemagick"
-brew "uni"
-brew "webp"
-
-# misc
-brew "grip"
-brew "mas"
+# --- Optional / Utility Tools ---
+brew "awscli"               # AWS command-line interface
+brew "croc"                 # Encrypted file transfer between devices
+brew "duti"                 # Manage file type associations
+brew "gnu-sed"              # GNU sed (more features than macOS sed)
+brew "grip"                 # Render Markdown locally in a browser
+brew "httpie"               # Human-friendly HTTP client
+brew "kanata"               # Keyboard remapper daemon
+brew "micro"                # Lightweight terminal text editor
+brew "n"                    # Node.js version manager
+brew "nmap"                 # Network mapper/scanner
+brew "psgrep"               # Search running processes
+brew "tree"                 # Display folder structures
+brew "unar"                 # Extract archive files
