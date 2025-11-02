@@ -1,0 +1,110 @@
+# ─── Homebrew Formulae ─────────────────────────────────────────────
+brew "atuin"
+brew "awscli"
+brew "bat"
+brew "bats-core"
+brew "codex"
+brew "coreutils"
+brew "croc"
+brew "dockutil"
+brew "duti"
+brew "eza"
+brew "fd"
+brew "ffmpeg"
+brew "fzf"
+brew "gh"
+brew "git"
+brew "git-delta"
+brew "git-extras"
+brew "gnu-sed"
+brew "grip"
+brew "grep"
+brew "httpie"
+brew "imagemagick"
+brew "jq"
+brew "kanata"
+brew "mas"
+brew "micro"
+brew "n"
+brew "nano"
+brew "nmap"
+brew "node"
+brew "psgrep"
+brew "python@3.13"
+brew "ripgrep"
+brew "ruby"
+brew "rust"
+brew "shellcheck"
+brew "ssh-copy-id"
+brew "starship"
+brew "stow"
+brew "the_silver_searcher"
+brew "thefuck"
+brew "tmux"
+brew "topgrade"
+brew "tree"
+brew "unar"
+brew "uni"
+brew "webp"
+brew "wget"
+brew "yt-dlp"
+brew "zoxide"
+
+# ─── Homebrew Casks ────────────────────────────────────────────────
+cask "1password"
+cask "anki"
+cask "anytype"
+cask "appcleaner"
+cask "betterdisplay"
+cask "fantastical"
+cask "firefox"
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+cask "font-hack"
+cask "freedom"
+cask "grammarly-desktop"
+cask "istat-menus"
+cask "logi-options+"
+cask "lookaway"
+cask "malwarebytes"
+cask "microsoft-auto-update"
+cask "microsoft-office"
+cask "obsidian"
+cask "raycast"
+cask "reader"
+cask "rectangle-pro"
+cask "slack"
+cask "sublime-text"
+cask "sunsama"
+cask "superkey"
+cask "visual-studio-code"
+cask "vlc"
+cask "zed"
+cask "zoom"
+
+# ─── Mac App Store (MAS) Apps ──────────────────────────────────────
+mas "1Password for Safari", id: 1569813296
+mas "Calory", id: 1476831360
+mas "Day One", id: 1055511498
+mas "Drafts", id: 1435957248
+mas "Dropover", id: 1355679052
+mas "Endel", id: 1346247457
+mas "forScore", id: 363738376
+mas "NotePlan", id: 1505432629
+mas "Panels", id: 1236567663
+mas "Paprika Recipe Manager 3", id: 1303222628
+mas "PastePal", id: 1503446680
+mas "Perplexity", id: 6714467650
+mas "Raycast Companion", id: 6738274497
+mas "Save to Raindrop.io", id: 1549370672
+mas "Save to Reader", id: 1640236961
+mas "Shazam", id: 897118787
+mas "Sofa", id: 1276554886
+mas "Structured", id: 1499198946
+mas "Swift Playground", id: 1496833156
+mas "Tailscale", id: 1475387142
+mas "TestFlight", id: 899247664
+mas "Things", id: 904280696
+mas "Trello", id: 1278508951
+mas "UnTrap", id: 1637438059
+mas "Yomu", id: 562211012
