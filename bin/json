@@ -1,23 +1,112 @@
 #!/usr/bin/env bash
 
-OPT_COLOR=""
+set -euo pipefail
 
-while getopts ":c" OPT; do
-	case "$OPT" in
-		c) OPT_COLOR="--color";;
+OPT_COLOR=0
+
+while getopts ":c" opt; do
+	case "$opt" in
+		c) OPT_COLOR=1 ;;
+		*)
+			echo "Usage: $(basename "$0") [-c] [file|url]" >&2
+			exit 1
+			;;
 	esac
 done
 
 shift $((OPTIND-1))
 
+INPUT=""
+
 if [ $# -ge 1 ]; then
-	if [[ "$1" == http* ]]; then
-	  INPUT=$(curl --silent "$1")
-	elif [ -f "$1" ]; then
-		INPUT=$(cat "$1")
+	TARGET=$1
+	if [[ "$TARGET" =~ ^https?:// ]]; then
+		if ! command -v curl >/dev/null 2>&1; then
+			echo "json: curl is required to read URLs" >&2
+			exit 1
+		fi
+		INPUT=$(curl --fail --silent --show-error "$TARGET")
+	elif [ -f "$TARGET" ]; then
+		INPUT=$(cat "$TARGET")
+	else
+		echo "json: '$TARGET' is not a readable file or URL" >&2
+		exit 1
 	fi
 else
-  INPUT=$(cat -)
+	INPUT=$(cat)
 fi
 
-echo "$INPUT" | underscore print "$OPT_COLOR"
+if [ -z "${INPUT}" ]; then
+	exit 0
+fi
+
+PYTHON_BIN=$(command -v python3 || command -v python || true)
+
+if [ -z "$PYTHON_BIN" ]; then
+	echo "json: python3 (or python) is required" >&2
+	exit 1
+fi
+
+read -r -d '' PYTHON_CODE <<'PY' || true
+import json
+import sys
+
+color = bool(int(sys.argv[1]))
+
+try:
+	data = sys.stdin.read()
+	obj = json.loads(data)
+except json.JSONDecodeError as exc:
+	sys.stderr.write(f"json: invalid JSON ({exc})\n")
+	sys.exit(1)
+
+PUNC = "\033[90m"
+KEY = "\033[36m"
+STRING = "\033[32m"
+NUMBER = "\033[33m"
+BOOL = "\033[35m"
+RESET = "\033[0m"
+
+def format_value(value):
+	if isinstance(value, dict):
+		items = []
+		for key, val in value.items():
+			items.append(f"{format_key(key)}{format_colon()}{format_value(val)}")
+		return wrap_container("{", "}", items)
+	if isinstance(value, list):
+		items = [format_value(item) for item in value]
+		return wrap_container("[", "]", items)
+	if isinstance(value, str):
+		return format_token(json.dumps(value), STRING)
+	if isinstance(value, bool):
+		return format_token("true" if value else "false", BOOL)
+	if value is None:
+		return format_token("null", BOOL)
+	return format_token(json.dumps(value), NUMBER)
+
+def format_key(key):
+	return format_token(json.dumps(key), KEY)
+
+def wrap_container(left, right, items):
+	if not items:
+		return format_token(f"{left}{right}", PUNC)
+	inner = ", ".join(items)
+	if color:
+		return f"{format_token(left, PUNC)} {inner} {format_token(right, PUNC)}"
+	return f"{left} {inner} {right}"
+
+def format_colon():
+	if color:
+		return f"{format_token(':', PUNC)} "
+	return ": "
+
+def format_token(token, default_color=None):
+	if color and default_color is not None:
+		return f"{default_color}{token}{RESET}"
+	return token
+
+formatted = format_value(obj)
+print(formatted)
+PY
+
+printf '%s' "$INPUT" | "$PYTHON_BIN" -c "$PYTHON_CODE" "$OPT_COLOR"
