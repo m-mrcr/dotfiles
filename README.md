@@ -20,45 +20,47 @@ It mainly targets macOS systems (should install on e.g. Ubuntu as well for many 
 
 - [Homebrew](https://brew.sh) (packages: [Brewfile](./install/Brewfile))
 - [homebrew-cask](https://github.com/Homebrew/homebrew-cask) (packages: [Caskfile](./install/Caskfile))
+- [Mac App Store](https://apps.apple.com) (apps: [Masfile](./install/Masfile))
 - [Node.js + npm LTS](https://nodejs.org/en/download/) (packages: [npmfile](./install/npmfile))
 - Latest Git, Bash, Python, GNU coreutils, curl, Ruby
 - `$EDITOR` is [GNU nano](https://www.nano-editor.org) (`$VISUAL` is `code` and Git `core.editor` is `code --wait`)
 
 ## Installation
 
-On a sparkling fresh installation of macOS:
+1. Run system updates and install the Xcode Command Line Tools (provides `git` and `make`):
+   ```bash
+   sudo softwareupdate -i -a
+   xcode-select --install
+   ```
+2. Grab the repo, either via the remote installer…
+   ```bash
+   bash -c "`curl -fsSL https://raw.githubusercontent.com/m-mrcr/dotfiles/main/remote-install.sh`"
+   ```
+   (If `~/.dotfiles` already exists, remove or rename it before running the installer.)
+   …or by cloning directly:
+   ```bash
+   git clone https://github.com/m-mrcr/dotfiles.git ~/.dotfiles
+   ```
+3. Install everything and link configs:
+   ```bash
+   cd ~/.dotfiles
+   make            # `make macos` does the same explicitly
+   ```
+   `make` is idempotent and executes the Homebrew, Cask, MAS, npm, cargo, stow, duti, and Bun steps.
 
-```bash
-sudo softwareupdate -i -a
-xcode-select --install
-```
+### Fresh macOS Setup (after erase)
 
-The Xcode Command Line Tools includes `git` and `make` (not available on stock macOS). Now there are two options:
-
-1. Install this repo with `curl` available:
-
-```bash
-bash -c "`curl -fsSL https://raw.githubusercontent.com/m-mrcr/dotfiles/main/remote-install.sh`"
-```
-
-This will clone or download this repo to `~/.dotfiles` (depending on the availability of `git`, `curl` or `wget`).
-
-1. Alternatively, clone manually into the desired location:
-
-```bash
-git clone https://github.com/m-mrcr/dotfiles.git ~/.dotfiles
-```
-
-2. Use the [Makefile](./Makefile) to install the [packages listed above](#packages-overview), and symlink
-   [runcom](./runcom) and [config](./config) files (using [stow](https://www.gnu.org/software/stow/)):
-
-```bash
-cd ~/.dotfiles
-make
-```
-
-Running `make` with the Makefile is idempotent. The installation process in the Makefile is tested on every push and every week in this
-[GitHub Action](https://github.com/m-mrcr/dotfiles/actions). Please file an issue in this repo if there are errors.
+- After onboarding, sign into iCloud and the App Store so the MAS bundle can authenticate.
+- Follow the installation steps above; keep the App Store open while `make` runs.
+- Useful reruns:
+  - `make packages` – Homebrew, Cask, MAS, npm, cargo bundles.
+  - `make mas-apps` – just the Mac App Store apps (`install/Masfile`).
+  - `make link` – re-stow configs without reinstalling packages.
+- Post-install checks:
+  ```bash
+  make test      # exercises helper scripts via Bats
+  dot update     # refresh package managers on the new machine
+  ```
 
 ## Post-Installation
 
