@@ -1,16 +1,64 @@
-#!/bin/sh
+#!/usr/bin/env bash
+set -euo pipefail
 
-dockutil --no-restart --remove all
-dockutil --no-restart --add "/Applications/Arc.app"
-dockutil --no-restart --add "/System/Applications/Messages.app"
-dockutil --no-restart --add "/System/Applications/Slack.app"
-dockutil --no-restart --add "/System/Applications/Microsoft Outlook.app"
-dockutil --no-restart --add "/System/Applications/Microsoft Excel.app"
-dockutil --no-restart --add "/Applications/Sunsama.app"
-dockutil --no-restart --add "/System/Applications/Anytype.app"
-dockutil --no-restart --add "/System/Applications/Obsidian.app"
-dockutil --no-restart --add "/System/Applications/Utilities/Terminal.app"
-dockutil --no-restart --add "/System/Applications/Reminders.app"
-dockutil --no-restart --add "/System/Applications/Notes.app"
+# Detect dockutil
+DOCKUTIL="$(command -v dockutil || true)"
+if [[ -z "${DOCKUTIL}" ]]; then
+  echo "dockutil not found. Install with: brew install dockutil"
+  exit 1
+fi
 
-killall Dock
+# Helper: add app if it exists
+add_app() {
+  local app_path="$1"
+  if [[ -e "$app_path" ]]; then
+    "$DOCKUTIL" --no-restart --add "$app_path"
+  else
+    echo "Skipping (not found): $app_path"
+  fi
+}
+
+# Reset Dock
+"$DOCKUTIL" --no-restart --remove all
+
+# --- Apps in order (from your screenshot) ---
+# System apps
+add_app "/Applications/Arc.app"
+add_app "/System/Applications/Music.app"
+add_app "/System/Applications/Messages.app"
+
+# Utilities & work
+add_app "/System/Applications/Drafts.app"
+add_app "/Applications/Slack.app"
+add_app "/Applications/Microsoft Outlook.app"
+add_app "/Applications/Microsoft Excel.app"
+add_app "/Applications/Microsoft PowerPoint.app"
+add_app "/System/Applications/Calendar.app"
+add_app "/System/Applications/Reminders.app"
+
+# AI & productivity
+add_app "/Applications/ChatGPT.app"
+
+# Dev / editors
+add_app "/System/Applications/NotePlan.app"
+add_app "/Applications/Visual Studio Code.app"
+
+# Communication
+add_app "/System/Applications/Mail.app"
+add_app "/Applications/zoom.app" # Zoom can be named differently depending on install
+
+# Terminal & drawing
+add_app "/Applications/Ghostty.app"
+
+# AI & productivity
+add_app "/Applications/Perplexity.app"
+
+# --- Optional stacks on the right side ---
+# Add Downloads stack (grid view, sort by date added)
+"$DOCKUTIL" --no-restart --add '~/Library/Mobile Documents/com~apple~CloudDocs/Screenshots' --view grid --display folder --sort dateadded
+
+# Add Documents stack (fan view)
+"$DOCKUTIL" --no-restart --add '~/Downloads' --view fan --display folder
+
+# Restart Dock to apply
+killall Dock || true
