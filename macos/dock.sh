@@ -24,27 +24,27 @@ add_app() {
 # --- Apps in order (from your screenshot) ---
 # System apps
 add_app "/Applications/Arc.app"
-add_app "/System/Applications/Music.app"
-add_app "/System/Applications/Messages.app"
+add_app "/Applications/Music.app"
+add_app "/Applications/Messages.app"
 
 # Utilities & work
-add_app "/System/Applications/Drafts.app"
+add_app "/Applications/Drafts.app"
 add_app "/Applications/Slack.app"
 add_app "/Applications/Microsoft Outlook.app"
 add_app "/Applications/Microsoft Excel.app"
 add_app "/Applications/Microsoft PowerPoint.app"
-add_app "/System/Applications/Calendar.app"
-add_app "/System/Applications/Reminders.app"
+add_app "/Applications/Calendar.app"
+add_app "/Applications/Reminders.app"
 
 # AI & productivity
 add_app "/Applications/ChatGPT.app"
 
 # Dev / editors
-add_app "/System/Applications/NotePlan.app"
+add_app "/Applications/NotePlan.app"
 add_app "/Applications/Visual Studio Code.app"
 
 # Communication
-add_app "/System/Applications/Mail.app"
+add_app "/Applications/Mail.app"
 add_app "/Applications/zoom.app" # Zoom can be named differently depending on install
 
 # Terminal & drawing
