@@ -40,8 +40,8 @@ sub_clean () {
   cargo cache --autoclean
   echo "$ gem cleanup"
   gem cleanup
-  echo "$ pip cache purge"
-  pip cache purge
+  echo "$ pip3 cache purge"
+  pip3 cache purge
 }
 
 sub_dock () {
@@ -57,7 +57,51 @@ sub_test () {
   bats "$DOTFILES_DIR"/test/*.bats
 }
 
+sub_update_mas () {
+  local max_attempts=3
+  local attempt=1
+  local wait_time=5
+
+  if ! command -v mas &> /dev/null; then
+    echo "mas not installed, skipping Mac App Store updates"
+    return 0
+  fi
+
+  echo "Updating Mac App Store apps..."
+  echo "Opening App Store..."
+  open -a "App Store"
+  sleep 2
+
+  while [ $attempt -le $max_attempts ]; do
+    echo "Attempt $attempt of $max_attempts..."
+
+    if mas upgrade; then
+      echo "Mac App Store apps updated successfully"
+      echo "Closing App Store..."
+      osascript -e 'quit app "App Store"' 2>/dev/null || true
+      return 0
+    else
+      local exit_code=$?
+      echo "mas upgrade failed with exit code $exit_code"
+
+      if [ $attempt -lt $max_attempts ]; then
+        echo "Waiting ${wait_time} seconds before retry..."
+        sleep $wait_time
+        wait_time=$((wait_time * 2))
+      fi
+    fi
+
+    attempt=$((attempt + 1))
+  done
+
+  echo "Warning: mas upgrade failed after $max_attempts attempts, continuing with other updates..."
+  echo "Closing App Store..."
+  osascript -e 'quit app "App Store"' 2>/dev/null || true
+  return 0
+}
+
 sub_update () {
+  sub_update_mas
   topgrade
 }
 
