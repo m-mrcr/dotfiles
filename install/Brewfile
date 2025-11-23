@@ -1,4 +1,3 @@
-tap "homebrew/bundle"
 tap "lotyp/homebrew-formulae"
 
 # ─── Homebrew Formulae ─────────────────────────────────────────────
@@ -34,7 +33,7 @@ brew "topgrade"             # Auto-update all tools
 brew "dockutil"             # Manage macOS Dock items via CLI
 brew "mas"                  # Mac App Store CLI for scripting installs
 brew "wget"                 # Command-line downloader
-brew "codex"                # ChatGPT Code Agent
+brew "tailscale"            # Zero-config VPN for secure, identity-based device networking.
 
 # --- Media & Graphics ---
 brew "ffmpeg"               # Video/audio conversion toolkit
