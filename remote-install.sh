@@ -10,7 +10,7 @@ is_executable() {
 }
 
 if is_executable "git"; then
-  CMD="git clone $SOURCE $TARGET"
+  CMD="git clone --recurse-submodules $SOURCE $TARGET"
 elif is_executable "curl"; then
   CMD="curl -#L $TARBALL | $TAR_CMD"
 elif is_executable "wget"; then
