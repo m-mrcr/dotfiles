@@ -22,6 +22,7 @@ It mainly targets macOS systems (should install on e.g. Ubuntu as well for many 
 - [homebrew-cask](https://github.com/Homebrew/homebrew-cask) (packages: [Caskfile](./install/Caskfile))
 - [Mac App Store](https://apps.apple.com) (apps: [Masfile](./install/Masfile))
 - [Node.js + npm LTS](https://nodejs.org/en/download/) (packages: [npmfile](./install/npmfile))
+- [Neovim](https://neovim.io) configuration (submodule: [nvim-config](https://github.com/m-mrcr/nvim-config))
 - Latest Git, Bash, Python, GNU coreutils, curl, Ruby
 - `$EDITOR` is [GNU nano](https://www.nano-editor.org) (`$VISUAL` is `code` and Git `core.editor` is `code --wait`)
 
@@ -39,8 +40,11 @@ It mainly targets macOS systems (should install on e.g. Ubuntu as well for many 
    (If `~/.dotfiles` already exists, remove or rename it before running the installer.)
    …or by cloning directly:
    ```bash
-   git clone https://github.com/m-mrcr/dotfiles.git ~/.dotfiles
+   git clone --recurse-submodules https://github.com/m-mrcr/dotfiles.git ~/.dotfiles
    ```
+   > **Note:** The `--recurse-submodules` flag automatically initializes the Neovim configuration submodule.
+   > If you cloned without this flag, run `cd ~/.dotfiles && git submodule update --init --recursive`
+
 3. Install everything and link configs:
    ```bash
    cd ~/.dotfiles
@@ -83,6 +87,45 @@ dot macos
 
 ```sh
 touch ~/.dotfiles/system/.exports
+```
+
+## Neovim Configuration
+
+The Neovim configuration is managed as a separate git submodule at `config/nvim`, allowing it to be:
+- Maintained independently in its own repository ([m-mrcr/nvim-config](https://github.com/m-mrcr/nvim-config))
+- Shared across different systems (macOS and Linux)
+- Updated independently from the dotfiles
+
+### Updating the Neovim config
+
+To update the Neovim configuration to the latest version:
+
+```bash
+cd ~/.dotfiles/config/nvim
+git pull origin main
+cd ~/.dotfiles
+git add config/nvim
+git commit -m "Update nvim config"
+```
+
+### Working on the Neovim config
+
+The submodule is a full git repository, so you can work on it directly:
+
+```bash
+cd ~/.dotfiles/config/nvim
+# Make changes, commit, push
+git add .
+git commit -m "Your changes"
+git push origin main
+```
+
+Then update the submodule pointer in your dotfiles:
+
+```bash
+cd ~/.dotfiles
+git add config/nvim
+git commit -m "Update nvim config submodule"
 ```
 
 ## The `dot` command
