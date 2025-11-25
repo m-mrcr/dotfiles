@@ -20,9 +20,8 @@ fi
 PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Source the dotfiles (order matters)
-# Note: .prompt is Bash-specific and not needed for Zsh (using Starship instead)
 
-for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,n,path,env,exports,alias,fzf,grep,completion,fix,zoxide}; do
+for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,fzf,grep,completion,fix,zoxide}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
@@ -30,14 +29,6 @@ if is-macos; then
   for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function}.macos; do
     [ -f "$DOTFILE" ] && . "$DOTFILE"
   done
-fi
-
-# Set LSCOLORS (use gdircolors if available, fallback to dircolors)
-
-if command -v gdircolors >/dev/null 2>&1; then
-  eval "$(gdircolors -b "$DOTFILES_DIR"/system/.dir_colors)"
-elif command -v dircolors >/dev/null 2>&1; then
-  eval "$(dircolors -b "$DOTFILES_DIR"/system/.dir_colors)"
 fi
 
 # Wrap up

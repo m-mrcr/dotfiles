@@ -4,11 +4,10 @@ function cdf() {
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
 
-# Dev
+# Open directory in default editor
 
 d() {
   $VISUAL ${1:-.}
-  $VISUAL_GIT ${1:-.}
 }
 
 # Get Bundle ID of macOS app
