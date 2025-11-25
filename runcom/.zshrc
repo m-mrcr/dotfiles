@@ -20,8 +20,9 @@ fi
 PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Source the dotfiles (order matters)
+# Note: .prompt is Bash-specific and not needed for Zsh (using Starship instead)
 
-for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,n,path,env,exports,alias,fzf,grep,prompt,completion,fix,zoxide}; do
+for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,n,path,env,exports,alias,fzf,grep,completion,fix,zoxide}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
@@ -60,3 +61,6 @@ if [ -f "/opt/anaconda3/bin/conda" ]; then
   unset __conda_setup
 fi
 # <<< conda initialize <<<
+
+eval "$(starship init zsh)"
+
