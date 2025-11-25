@@ -1,625 +1,625 @@
 {
-	"name": "Moonbow",
-	"description": "Adapted from Jeff Mueller's Night Owl, adapted from Sarah Drasner's theme for VS Code by the same name.",
-	"author": "Martin Mercer",
-	"isDark": true,
-	"scopes": {
-		"text.normal": {
-			"name": "Normal Text",
-			"settings": {
-				"foreground": "foreground",
-				"fontStyle": "normal"
-			}
-		},
-		"text.normal.large": {
-			"name": "Large Text",
-			"settings": {
-				"foreground": "foreground",
-				"fontSize": "large"
-			}
-		},
-		"text.normal.extraLarge": {
-			"name": "Extra Large Text",
-			"settings": {
-				"foreground": "foreground",
-				"fontSize": "extraLarge"
-			}
-		},
-		"text.normal.small": {
-			"name": "Small Text",
-			"settings": {
-				"foreground": "foreground",
-				"fontSize": "small"
-			}
-		},
-		"text.normal.extraSmall": {
-			"name": "Extra Small Text",
-			"settings": {
-				"foreground": "foreground",
-				"fontSize": "extraSmall"
-			}
-		},
-		"text.bold": {
-			"name": "Bold",
-			"settings": {
-				"fontWeight": "bold"
-			}
-		},
-		"text.bold.large": {
-			"name": "Large Bold",
-			"settings": {
-				"fontWeight": "bold",
-				"fontSize": "large"
-			}
-		},
-		"text.bold.extraLarge": {
-			"name": "Extra Large Bold",
-			"settings": {
-				"fontWeight": "bold",
-				"fontSize": "extraLarge"
-			}
-		},
-		"text.bold.small": {
-			"name": "Small Bold",
-			"settings": {
-				"fontWeight": "bold",
-				"fontSize": "small"
-			}
-		},
-		"text.bold.extraSmall": {
-			"name": "Extra Small Bold",
-			"settings": {
-				"fontWeight": "bold",
-				"fontSize": "extraSmall"
-			}
-		},
-		"text.italic": {
-			"name": "Italic",
-			"settings": {
-				"fontStyle": "italic"
-			}
-		},
-		"text.italic.large": {
-			"name": "Large Italic",
-			"settings": {
-				"fontStyle": "italic",
-				"fontSize": "large"
-			}
-		},
-		"text.italic.extraLarge": {
-			"name": "Extra Large Italic",
-			"settings": {
-				"fontStyle": "italic",
-				"fontSize": "extraLarge"
-			}
-		},
-		"text.italic.small": {
-			"name": "Small Italic",
-			"settings": {
-				"fontStyle": "italic",
-				"fontSize": "small"
-			}
-		},
-		"text.italic.extraSmall": {
-			"name": "Extra Small Italic",
-			"settings": {
-				"fontStyle": "italic",
-				"fontSize": "extraSmall"
-			}
-		},
-		"text.bolditalic": {
-			"name": "Bold, Italic",
-			"settings": {
-				"fontStyle": "italic",
-				"fontWeight": "bold"
-			}
-		},
-		"text.bolditalic.large": {
-			"name": "Large Bold, Italic",
-			"settings": {
-				"fontStyle": "italic",
-				"fontWeight": "bold",
-				"fontSize": "large"
-			}
-		},
-		"text.bolditalic.extraLarge": {
-			"name": "Extra Large Bold, Italic",
-			"settings": {
-				"fontStyle": "italic",
-				"fontWeight": "bold",
-				"fontSize": "extraLarge"
-			}
-		},
-		"text.bolditalic.small": {
-			"name": "Small Bold, Italic",
-			"settings": {
-				"fontStyle": "italic",
-				"fontWeight": "bold",
-				"fontSize": "small"
-			}
-		},
-		"text.bolditalic.extraSmall": {
-			"name": "Extra Small Bold, Italic",
-			"settings": {
-				"fontStyle": "italic",
-				"fontWeight": "bold",
-				"fontSize": "extraSmall"
-			}
-		},
-		"text.monospace": {
-			"name": "Monospace",
-			"settings": {
-				"fontStyle": "monospace"
-			}
-		},
-		"text.monospace.large": {
-			"name": "Large Monospace",
-			"settings": {
-				"fontStyle": "monospace",
-				"fontSize": "large"
-			}
-		},
-		"text.monospace.extraLarge": {
-			"name": "Extra Large Monospace",
-			"settings": {
-				"fontStyle": "monospace",
-				"fontSize": "extraLarge"
-			}
-		},
-		"text.monospace.small": {
-			"name": "Small Monospace",
-			"settings": {
-				"fontStyle": "monospace",
-				"fontSize": "small"
-			}
-		},
-		"text.monospace.extraSmall": {
-			"name": "Extra Small Monospace",
-			"settings": {
-				"fontStyle": "monospace",
-				"fontSize": "extraSmall"
-			}
-		},
-		"text.monospace.bold": {
-			"name": "Monospace Bold",
-			"settings": {
-				"fontStyle": "monospace",
-				"fontWeight": "bold"
-			}
-		},
-		"text.monospace.bold.large": {
-			"name": "Large Monospace Bold",
-			"settings": {
-				"fontStyle": "monospace",
-				"fontWeight": "bold",
-				"fontSize": "large"
-			}
-		},
-		"text.monospace.bold.extraLarge": {
-			"name": "Extra Large Monospace Bold",
-			"settings": {
-				"fontStyle": "monospace",
-				"fontWeight": "bold",
-				"fontSize": "extraLarge"
-			}
-		},
-		"text.monospace.bold.small": {
-			"name": "Small Monospace Bold",
-			"settings": {
-				"fontStyle": "monospace",
-				"fontWeight": "bold",
-				"fontSize": "small"
-			}
-		},
-		"text.monospace.bold.extraSmall": {
-			"name": "Extra Small Monospace Bold",
-			"settings": {
-				"fontStyle": "monospace",
-				"fontWeight": "bold",
-				"fontSize": "small"
-			}
-		},
-		"text.monospace.italic": {
-			"name": "Monospace Italic",
-			"settings": {
-				"fontStyle": "monospace",
-				"foreground": "foreground"
-			}
-		},
-		"text.monospace.italic.large": {
-			"name": "Large Monospace Italic",
-			"settings": {
-				"fontStyle": "italic, monospace",
-				"fontSize": "large"
-			}
-		},
-		"text.monospace.italic.extraLarge": {
-			"name": "Extra Large Monospace Italic",
-			"settings": {
-				"fontStyle": "italic, monospace",
-				"fontSize": "extraLarge"
-			}
-		},
-		"text.monospace.italic.small": {
-			"name": "Small Monospace Italic",
-			"settings": {
-				"fontStyle": "italic, monospace",
-				"fontSize": "small"
-			}
-		},
-		"text.monospace.italic.extraSmall": {
-			"name": "Extra Small Monospace Italic",
-			"settings": {
-				"fontStyle": "italic, monospace",
-				"fontSize": "extraSmall"
-			}
-		},
-		"text.underline": {
-			"name": "Underline",
-			"settings": {
-				"fontStyle": "underline"
-			}
-		},
-		"text.heading": {
-			"name": "Heading",
-			"settings": {
-				"fontWeight": "bold",
-				"foreground": "accent01"
-			}
-		},
-		"text.heading01": {
-			"name": "Level 1 Heading",
-			"settings": {
-				"fontWeight": "black",
-				"foreground": "accent01",
-				"fontSize": "extraLarge"
-			}
-		},
-		"text.heading02": {
-			"name": "Level 2 Heading",
-			"settings": {
-				"fontWeight": "bold",
-				"foreground": "accent02",
-				"fontSize": "large"
-			}
-		},
-		"text.heading03": {
-			"name": "Level 3 Heading",
-			"settings": {
-				"fontWeight": "regular",
-				"foreground": "accent03",
-				"fontSize": "large"
-			}
-		},
-		"text.heading04": {
-			"name": "Level 4 Heading",
-			"settings": {
-				"fontWeight": "light",
-				"foreground": "accent04",
-				"fontSize": "large"
-			}
-		},
-		"text.heading05": {
-			"name": "Level 5 Heading",
-			"settings": {
-				"fontWeight": "heavy",
-				"foreground": "accent05",
-				"fontSize": "normal"
-			}
-		},
-		"text.heading06": {
-			"name": "Level 6 Heading",
-			"settings": {
-				"fontWeight": "semibold",
-				"foreground": "accent06",
-				"fontSize": "normal",
-				"fontStyle": "underline"
-			}
-		},
-		"text.invisibles": {
-			"name": "Invisible characters",
-			"settings": {
-				"foreground": "invisibles"
-			}
-		},
-		"text.link": {
-			"name": "Link",
-			"settings": {
-				"foreground": "link"
-			}
-		},
-		"text.activeLink": {
-			"name": "Link which is tap/clickable",
-			"settings": {
-				"foreground": "activeLink"
-			}
-		},
-		"text.quotation": {
-			"name": "Quotation block",
-			"settings": {
-				"foreground": "comment",
-				"fontStyle": "italic"
-			}
-		},
-		"text.url": {
-			"name": "URL",
-			"settings": {
-				"foreground": "link",
-				"fontWeight": "light"
-			}
-		},
-		"text.linkModeLink": {
-			"name": "Link Mode Link",
-			"settings": {
-				"foreground": "link",
-				"fontStyle": "underline"
-			}
-		},
-		"text.strikethrough": {
-			"name": "Strikethrough",
-			"settings": {
-				"fontStyle": "strikethrough",
-				"foreground": "strikethrough"
-			}
-		},
-		"markup": {
-			"name": "Markup",
-			"settings": {
-				"foreground": "markup"
-			}
-		},
-		"markup.heading": {
-			"name": "Markup",
-			"settings": {
-				"foreground": "markup"
-			}
-		},
-		"markup.quotation": {
-			"name": "Markup",
-			"settings": {
-				"foreground": "markup"
-			}
-		},
-		"markup.list": {
-			"name": "Markup",
-			"settings": {
-				"foreground": "markup"
-			}
-		},
-		"markup.link": {
-			"name": "Markup",
-			"settings": {
-				"foreground": "markup"
-			}
-		},
-		"markup.code": {
-			"name": "Markup",
-			"settings": {
-				"foreground": "markup",
-				"fontStyle": "monospace"
-			}
-		},
-		"markup.addition": {
-			"name": "Addition",
-			"settings": {
-				"fontStyle": "italic",
-				"foreground": "addition"
-			}
-		},
-		"markup.deletion": {
-			"name": "Deletion",
-			"settings": {
-				"fontStyle": "italic",
-				"foreground": "deletion"
-			}
-		},
-		"markup.substitution": {
-			"name": "Substitution",
-			"settings": {
-				"fontStyle": "italic",
-				"foreground": "substitution"
-			}
-		},
-		"markup.highlight": {
-			"name": "Highlight",
-			"settings": {
-				"background": "highlight"
-			}
-		},
-		"code.comment": {
-			"name": "Comment",
-			"settings": {
-				"foreground": "comment"
-			}
-		},
-		"code.inline": {
-			"name": "Inline code",
-			"settings": {
-				"fontStyle": "monospace",
-				"foreground": "code",
-				"background": "codeBackground"
-			}
-		},
-		"code.block": {
-			"name": "Code block",
-			"settings": {
-				"fontStyle": "monospace",
-				"foreground": "code"
-			}
-		},
-		"code.literal": {
-			"name": "Code block",
-			"settings": {
-				"foreground": "literal"
-			}
-		},
-		"code.keyword": {
-			"name": "Keyword",
-			"settings": {
-				"foreground": "keyword"
-			}
-		},
-		"code.operator": {
-			"name": "Operator",
-			"settings": {
-				"foreground": "markup"
-			}
-		},
-		"code.punctuation": {
-			"name": "Operator",
-			"settings": {
-				"foreground": "comment"
-			}
-		},
-		"color.accent01": {
-			"name": "Accent color",
-			"settings": {
-				"foreground": "accent01"
-			}
-		},
-		"color.accent02": {
-			"name": "Accent color",
-			"settings": {
-				"foreground": "accent02"
-			}
-		},
-		"color.accent03": {
-			"name": "Accent color",
-			"settings": {
-				"foreground": "accent03"
-			}
-		},
-		"color.accent04": {
-			"name": "Accent color",
-			"settings": {
-				"foreground": "accent04"
-			}
-		},
-		"color.accent05": {
-			"name": "Accent color",
-			"settings": {
-				"foreground": "accent05"
-			}
-		},
-		"color.accent06": {
-			"name": "Accent color",
-			"settings": {
-				"foreground": "accent06"
-			}
-		},
-		"color.blue": {
-			"name": "Blue color",
-			"settings": {}
-		},
-		"color.indigo": {
-			"name": "Blue color",
-			"settings": {}
-		},
-		"color.purple": {
-			"name": "Purple color",
-			"settings": {}
-		},
-		"color.pink": {
-			"name": "Pink color",
-			"settings": {}
-		},
-		"color.red": {
-			"name": "Red color",
-			"settings": {}
-		},
-		"color.orange": {
-			"name": "Orange color",
-			"settings": {}
-		},
-		"color.yellow": {
-			"name": "Yellow color",
-			"settings": {}
-		},
-		"color.green": {
-			"name": "Green color",
-			"settings": {}
-		},
-		"color.black": {
-			"name": "Black color",
-			"settings": {}
-		},
-		"color.white": {
-			"name": "White color",
-			"settings": {}
-		},
-		"color.gray": {
-			"name": "Gray color",
-			"settings": {}
-		}
-	},
-	"colors": {
-		"editor": {
-			"foreground": "#d6deeb",
-			"background": "#000000",
-			"heading": "#82b1ff",
-			"strikethrough": "#aaaaaa",
-			"comment": "#ae7f99",
-			"link": "#80cbc4",
-			"activeLink": "#d1aaff",
-			"code": "#80cbc4",
-			"codeBackground": "#000000",
-			"literal": "#82aaff",
-			"keyword": "#c792ea",
-			"markup": "#c5e478",
-			"addition": "#c5e478",
-			"deletion": "#ef5350",
-			"substitution": "#a2bffc",
-			"highlight": "#234d70",
-			"invisibles": "#1d3b53",
-			"accent01": "#82b1ff",
-			"accent02": "#3de181",
-			"accent03": "#f0d14f",
-			"accent04": "#ff524f",
-			"accent05": "#e89287",
-			"accent06": "#9a94c7"
-		},
-		"interface": {
-			"tint": "#eec765",
-			"textCaret": "#80a4c2",
-			"tintAlternate": "#c5e4fd",
-			"textSelection": "#dcdcdc",
-			"textHighlight": "#232427",
-			"background": "#000000",
-			"textBackground": "#000000",
-			"backgroundCollection": "#0b253a",
-			"promptBackground": "#011627",
-			"promptButtonBackground": "#7e57c2",
-			"promptButtonForeground": "#d6deeb",
-			"promptButtonDestructiveBackground": "#ef5350",
-			"promptButtonDestructiveForeground": "#d6deeb",
-			"foreground": "#d6deeb",
-			"textForeground": "#d6deeb",
-			"caption": "#697098",
-			"actionBarBackground": "#011627",
-			"actionBarKeyBackground": "#7e57c2",
-			"actionBarKeyForeground": "#ffffcc",
-			"flagged": "#b39554",
-			"move": "#4373c2",
-			"delete": "#ef5350",
-			"tagForeground": "#ffffcc",
-			"tagBackground": "#7e57c2",
-			"tagAddHighlight": "#9ccc65",
-			"tagRemoveHighlight": "#ef5350",
-			"border": "#122d42",
-			"messageForeground": "#d6deeb",
-			"messageSuccess": "#7e57c2",
-			"messageInfo": "#82aaff",
-			"messageWarning": "#ffca28",
-			"messageError": "#ef5350",
-			"tintGray": "#d6deeb",
-			"tintRed": "#ef5350",
-			"tintPink": "#c792ea",
-			"tintOrange": "#ffca28",
-			"tintYellow": "#c5e478",
-			"tintGreen": "#22da6e",
-			"tintIndigo": "#7e57c2",
-			"tintBlue": "#82aaff",
-			"tintViolet": "#7e57c2"
-		}
-	}
+  "name": "Moonbow",
+  "description": "Adapted from Jeff Mueller's Night Owl, adapted from Sarah Drasner's theme for VS Code by the same name.",
+  "author": "Martin Mercer",
+  "isDark": true,
+  "scopes": {
+    "text.normal": {
+      "name": "Normal Text",
+      "settings": {
+        "foreground": "foreground",
+        "fontStyle": "normal"
+      }
+    },
+    "text.normal.large": {
+      "name": "Large Text",
+      "settings": {
+        "foreground": "foreground",
+        "fontSize": "large"
+      }
+    },
+    "text.normal.extraLarge": {
+      "name": "Extra Large Text",
+      "settings": {
+        "foreground": "foreground",
+        "fontSize": "extraLarge"
+      }
+    },
+    "text.normal.small": {
+      "name": "Small Text",
+      "settings": {
+        "foreground": "foreground",
+        "fontSize": "small"
+      }
+    },
+    "text.normal.extraSmall": {
+      "name": "Extra Small Text",
+      "settings": {
+        "foreground": "foreground",
+        "fontSize": "extraSmall"
+      }
+    },
+    "text.bold": {
+      "name": "Bold",
+      "settings": {
+        "fontWeight": "bold"
+      }
+    },
+    "text.bold.large": {
+      "name": "Large Bold",
+      "settings": {
+        "fontWeight": "bold",
+        "fontSize": "large"
+      }
+    },
+    "text.bold.extraLarge": {
+      "name": "Extra Large Bold",
+      "settings": {
+        "fontWeight": "bold",
+        "fontSize": "extraLarge"
+      }
+    },
+    "text.bold.small": {
+      "name": "Small Bold",
+      "settings": {
+        "fontWeight": "bold",
+        "fontSize": "small"
+      }
+    },
+    "text.bold.extraSmall": {
+      "name": "Extra Small Bold",
+      "settings": {
+        "fontWeight": "bold",
+        "fontSize": "extraSmall"
+      }
+    },
+    "text.italic": {
+      "name": "Italic",
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    "text.italic.large": {
+      "name": "Large Italic",
+      "settings": {
+        "fontStyle": "italic",
+        "fontSize": "large"
+      }
+    },
+    "text.italic.extraLarge": {
+      "name": "Extra Large Italic",
+      "settings": {
+        "fontStyle": "italic",
+        "fontSize": "extraLarge"
+      }
+    },
+    "text.italic.small": {
+      "name": "Small Italic",
+      "settings": {
+        "fontStyle": "italic",
+        "fontSize": "small"
+      }
+    },
+    "text.italic.extraSmall": {
+      "name": "Extra Small Italic",
+      "settings": {
+        "fontStyle": "italic",
+        "fontSize": "extraSmall"
+      }
+    },
+    "text.bolditalic": {
+      "name": "Bold, Italic",
+      "settings": {
+        "fontStyle": "italic",
+        "fontWeight": "bold"
+      }
+    },
+    "text.bolditalic.large": {
+      "name": "Large Bold, Italic",
+      "settings": {
+        "fontStyle": "italic",
+        "fontWeight": "bold",
+        "fontSize": "large"
+      }
+    },
+    "text.bolditalic.extraLarge": {
+      "name": "Extra Large Bold, Italic",
+      "settings": {
+        "fontStyle": "italic",
+        "fontWeight": "bold",
+        "fontSize": "extraLarge"
+      }
+    },
+    "text.bolditalic.small": {
+      "name": "Small Bold, Italic",
+      "settings": {
+        "fontStyle": "italic",
+        "fontWeight": "bold",
+        "fontSize": "small"
+      }
+    },
+    "text.bolditalic.extraSmall": {
+      "name": "Extra Small Bold, Italic",
+      "settings": {
+        "fontStyle": "italic",
+        "fontWeight": "bold",
+        "fontSize": "extraSmall"
+      }
+    },
+    "text.monospace": {
+      "name": "Monospace",
+      "settings": {
+        "fontStyle": "monospace"
+      }
+    },
+    "text.monospace.large": {
+      "name": "Large Monospace",
+      "settings": {
+        "fontStyle": "monospace",
+        "fontSize": "large"
+      }
+    },
+    "text.monospace.extraLarge": {
+      "name": "Extra Large Monospace",
+      "settings": {
+        "fontStyle": "monospace",
+        "fontSize": "extraLarge"
+      }
+    },
+    "text.monospace.small": {
+      "name": "Small Monospace",
+      "settings": {
+        "fontStyle": "monospace",
+        "fontSize": "small"
+      }
+    },
+    "text.monospace.extraSmall": {
+      "name": "Extra Small Monospace",
+      "settings": {
+        "fontStyle": "monospace",
+        "fontSize": "extraSmall"
+      }
+    },
+    "text.monospace.bold": {
+      "name": "Monospace Bold",
+      "settings": {
+        "fontStyle": "monospace",
+        "fontWeight": "bold"
+      }
+    },
+    "text.monospace.bold.large": {
+      "name": "Large Monospace Bold",
+      "settings": {
+        "fontStyle": "monospace",
+        "fontWeight": "bold",
+        "fontSize": "large"
+      }
+    },
+    "text.monospace.bold.extraLarge": {
+      "name": "Extra Large Monospace Bold",
+      "settings": {
+        "fontStyle": "monospace",
+        "fontWeight": "bold",
+        "fontSize": "extraLarge"
+      }
+    },
+    "text.monospace.bold.small": {
+      "name": "Small Monospace Bold",
+      "settings": {
+        "fontStyle": "monospace",
+        "fontWeight": "bold",
+        "fontSize": "small"
+      }
+    },
+    "text.monospace.bold.extraSmall": {
+      "name": "Extra Small Monospace Bold",
+      "settings": {
+        "fontStyle": "monospace",
+        "fontWeight": "bold",
+        "fontSize": "small"
+      }
+    },
+    "text.monospace.italic": {
+      "name": "Monospace Italic",
+      "settings": {
+        "fontStyle": "monospace",
+        "foreground": "foreground"
+      }
+    },
+    "text.monospace.italic.large": {
+      "name": "Large Monospace Italic",
+      "settings": {
+        "fontStyle": "italic, monospace",
+        "fontSize": "large"
+      }
+    },
+    "text.monospace.italic.extraLarge": {
+      "name": "Extra Large Monospace Italic",
+      "settings": {
+        "fontStyle": "italic, monospace",
+        "fontSize": "extraLarge"
+      }
+    },
+    "text.monospace.italic.small": {
+      "name": "Small Monospace Italic",
+      "settings": {
+        "fontStyle": "italic, monospace",
+        "fontSize": "small"
+      }
+    },
+    "text.monospace.italic.extraSmall": {
+      "name": "Extra Small Monospace Italic",
+      "settings": {
+        "fontStyle": "italic, monospace",
+        "fontSize": "extraSmall"
+      }
+    },
+    "text.underline": {
+      "name": "Underline",
+      "settings": {
+        "fontStyle": "underline"
+      }
+    },
+    "text.heading": {
+      "name": "Heading",
+      "settings": {
+        "fontWeight": "bold",
+        "foreground": "accent01"
+      }
+    },
+    "text.heading01": {
+      "name": "Level 1 Heading",
+      "settings": {
+        "fontWeight": "black",
+        "foreground": "accent01",
+        "fontSize": "extraLarge"
+      }
+    },
+    "text.heading02": {
+      "name": "Level 2 Heading",
+      "settings": {
+        "fontWeight": "bold",
+        "foreground": "accent02",
+        "fontSize": "large"
+      }
+    },
+    "text.heading03": {
+      "name": "Level 3 Heading",
+      "settings": {
+        "fontWeight": "regular",
+        "foreground": "accent03",
+        "fontSize": "large"
+      }
+    },
+    "text.heading04": {
+      "name": "Level 4 Heading",
+      "settings": {
+        "fontWeight": "light",
+        "foreground": "accent04",
+        "fontSize": "large"
+      }
+    },
+    "text.heading05": {
+      "name": "Level 5 Heading",
+      "settings": {
+        "fontWeight": "heavy",
+        "foreground": "accent05",
+        "fontSize": "normal"
+      }
+    },
+    "text.heading06": {
+      "name": "Level 6 Heading",
+      "settings": {
+        "fontWeight": "semibold",
+        "foreground": "accent06",
+        "fontSize": "normal",
+        "fontStyle": "underline"
+      }
+    },
+    "text.invisibles": {
+      "name": "Invisible characters",
+      "settings": {
+        "foreground": "invisibles"
+      }
+    },
+    "text.link": {
+      "name": "Link",
+      "settings": {
+        "foreground": "link"
+      }
+    },
+    "text.activeLink": {
+      "name": "Link which is tap/clickable",
+      "settings": {
+        "foreground": "activeLink"
+      }
+    },
+    "text.quotation": {
+      "name": "Quotation block",
+      "settings": {
+        "foreground": "comment",
+        "fontStyle": "italic"
+      }
+    },
+    "text.url": {
+      "name": "URL",
+      "settings": {
+        "foreground": "link",
+        "fontWeight": "light"
+      }
+    },
+    "text.linkModeLink": {
+      "name": "Link Mode Link",
+      "settings": {
+        "foreground": "link",
+        "fontStyle": "underline"
+      }
+    },
+    "text.strikethrough": {
+      "name": "Strikethrough",
+      "settings": {
+        "fontStyle": "strikethrough",
+        "foreground": "strikethrough"
+      }
+    },
+    "markup": {
+      "name": "Markup",
+      "settings": {
+        "foreground": "markup"
+      }
+    },
+    "markup.heading": {
+      "name": "Markup",
+      "settings": {
+        "foreground": "markup"
+      }
+    },
+    "markup.quotation": {
+      "name": "Markup",
+      "settings": {
+        "foreground": "markup"
+      }
+    },
+    "markup.list": {
+      "name": "Markup",
+      "settings": {
+        "foreground": "markup"
+      }
+    },
+    "markup.link": {
+      "name": "Markup",
+      "settings": {
+        "foreground": "markup"
+      }
+    },
+    "markup.code": {
+      "name": "Markup",
+      "settings": {
+        "foreground": "markup",
+        "fontStyle": "monospace"
+      }
+    },
+    "markup.addition": {
+      "name": "Addition",
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "addition"
+      }
+    },
+    "markup.deletion": {
+      "name": "Deletion",
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "deletion"
+      }
+    },
+    "markup.substitution": {
+      "name": "Substitution",
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "substitution"
+      }
+    },
+    "markup.highlight": {
+      "name": "Highlight",
+      "settings": {
+        "background": "highlight"
+      }
+    },
+    "code.comment": {
+      "name": "Comment",
+      "settings": {
+        "foreground": "comment"
+      }
+    },
+    "code.inline": {
+      "name": "Inline code",
+      "settings": {
+        "fontStyle": "monospace",
+        "foreground": "code",
+        "background": "codeBackground"
+      }
+    },
+    "code.block": {
+      "name": "Code block",
+      "settings": {
+        "fontStyle": "monospace",
+        "foreground": "code"
+      }
+    },
+    "code.literal": {
+      "name": "Code block",
+      "settings": {
+        "foreground": "literal"
+      }
+    },
+    "code.keyword": {
+      "name": "Keyword",
+      "settings": {
+        "foreground": "keyword"
+      }
+    },
+    "code.operator": {
+      "name": "Operator",
+      "settings": {
+        "foreground": "markup"
+      }
+    },
+    "code.punctuation": {
+      "name": "Operator",
+      "settings": {
+        "foreground": "comment"
+      }
+    },
+    "color.accent01": {
+      "name": "Accent color",
+      "settings": {
+        "foreground": "accent01"
+      }
+    },
+    "color.accent02": {
+      "name": "Accent color",
+      "settings": {
+        "foreground": "accent02"
+      }
+    },
+    "color.accent03": {
+      "name": "Accent color",
+      "settings": {
+        "foreground": "accent03"
+      }
+    },
+    "color.accent04": {
+      "name": "Accent color",
+      "settings": {
+        "foreground": "accent04"
+      }
+    },
+    "color.accent05": {
+      "name": "Accent color",
+      "settings": {
+        "foreground": "accent05"
+      }
+    },
+    "color.accent06": {
+      "name": "Accent color",
+      "settings": {
+        "foreground": "accent06"
+      }
+    },
+    "color.blue": {
+      "name": "Blue color",
+      "settings": {}
+    },
+    "color.indigo": {
+      "name": "Blue color",
+      "settings": {}
+    },
+    "color.purple": {
+      "name": "Purple color",
+      "settings": {}
+    },
+    "color.pink": {
+      "name": "Pink color",
+      "settings": {}
+    },
+    "color.red": {
+      "name": "Red color",
+      "settings": {}
+    },
+    "color.orange": {
+      "name": "Orange color",
+      "settings": {}
+    },
+    "color.yellow": {
+      "name": "Yellow color",
+      "settings": {}
+    },
+    "color.green": {
+      "name": "Green color",
+      "settings": {}
+    },
+    "color.black": {
+      "name": "Black color",
+      "settings": {}
+    },
+    "color.white": {
+      "name": "White color",
+      "settings": {}
+    },
+    "color.gray": {
+      "name": "Gray color",
+      "settings": {}
+    }
+  },
+  "colors": {
+    "editor": {
+      "foreground": "#d6deeb",
+      "background": "#000000",
+      "heading": "#fce694",
+      "strikethrough": "#a19a94",
+      "comment": "#977da1",
+      "link": "#2d93ad",
+      "activeLink": "#c08081",
+      "code": "#2d93ad",
+      "codeBackground": "#000000",
+      "literal": "#2d93ad",
+      "keyword": "#977da1",
+      "markup": "#0cce6b",
+      "addition": "#0cce6b",
+      "deletion": "#ef5350",
+      "substitution": "#2d93ad",
+      "highlight": "#234d70",
+      "invisibles": "#1d3b53",
+      "accent01": "#fce694",
+      "accent02": "#c08081",
+      "accent03": "#2d93ad",
+      "accent04": "#ef5350",
+      "accent05": "#0cce6b",
+      "accent06": "#977da1"
+    },
+    "interface": {
+      "tint": "#fce694",
+      "textCaret": "#2d93ad",
+      "tintAlternate": "#c08081",
+      "textSelection": "#dcdcdc",
+      "textHighlight": "#232427",
+      "background": "#000000",
+      "textBackground": "#000000",
+      "backgroundCollection": "#0b253a",
+      "promptBackground": "#011627",
+      "promptButtonBackground": "#977da1",
+      "promptButtonForeground": "#d6deeb",
+      "promptButtonDestructiveBackground": "#ef5350",
+      "promptButtonDestructiveForeground": "#d6deeb",
+      "foreground": "#d6deeb",
+      "textForeground": "#d6deeb",
+      "caption": "#a19a94",
+      "actionBarBackground": "#011627",
+      "actionBarKeyBackground": "#c08081",
+      "actionBarKeyForeground": "#ffffff",
+      "flagged": "#fce694",
+      "move": "#2d93ad",
+      "delete": "#ef5350",
+      "tagForeground": "#ffffff",
+      "tagBackground": "#977da1",
+      "tagAddHighlight": "#0cce6b",
+      "tagRemoveHighlight": "#ef5350",
+      "border": "#122d42",
+      "messageForeground": "#d6deeb",
+      "messageSuccess": "#0cce6b",
+      "messageInfo": "#2d93ad",
+      "messageWarning": "#fce694",
+      "messageError": "#ef5350",
+      "tintGray": "#a19a94",
+      "tintRed": "#ef5350",
+      "tintPink": "#c08081",
+      "tintOrange": "#fce694",
+      "tintYellow": "#fce694",
+      "tintGreen": "#0cce6b",
+      "tintIndigo": "#977da1",
+      "tintBlue": "#2d93ad",
+      "tintViolet": "#977da1"
+    }
+  }
 }

@@ -1,41 +1,50 @@
 #!/usr/bin/env zsh
-# Moonbow Theme - Color Palette
+# Moonbow Theme - Custom Color Palette
 # By Martin Mercer
-# Adapted from Night Owl by Jeff Mueller & Sarah Drasner
+# Personal color selection with Dusty Rose and Jasmine prominence
 
-# Editor Colors
-export MOONBOW_FOREGROUND="#d6deeb"
-export MOONBOW_BACKGROUND="#000000"
-export MOONBOW_HEADING="#82b1ff"
-export MOONBOW_COMMENT="#ae7f99"
-export MOONBOW_LINK="#80cbc4"
-export MOONBOW_ACTIVE_LINK="#d1aaff"
-export MOONBOW_CODE="#80cbc4"
-export MOONBOW_LITERAL="#82aaff"
-export MOONBOW_KEYWORD="#c792ea"
-export MOONBOW_MARKUP="#c5e478"
+# Core Palette
+export MOONBOW_PACIFIC_CYAN="#2d93ad"    # Cool blue-teal
+export MOONBOW_EMERALD="#0cce6b"         # Vibrant green
+export MOONBOW_DUSTY_MAUVE="#977da1"     # Soft purple
+export MOONBOW_DUSTY_ROSE="#c08081"      # ⭐ Warm pink (prominent)
+export MOONBOW_JASMINE="#fce694"         # ⭐ Soft yellow (prominent)
+
+# Additional Colors
+export MOONBOW_WARM_GREY="#a19a94"       # Neutral warm grey
+export MOONBOW_PASTEL_RED="#ef5350"      # Your original red
+
+# Base Colors
+export MOONBOW_FOREGROUND="#d6deeb"      # Soft blue-white
+export MOONBOW_BACKGROUND="#000000"      # Pure black
+
+# Semantic Mappings (using your custom palette)
+export MOONBOW_HEADING="$MOONBOW_JASMINE"          # Prominent yellow
+export MOONBOW_COMMENT="$MOONBOW_DUSTY_MAUVE"      # Soft purple
+export MOONBOW_LINK="$MOONBOW_PACIFIC_CYAN"        # Cool cyan
+export MOONBOW_ACTIVE_LINK="$MOONBOW_DUSTY_ROSE"   # Prominent rose
+export MOONBOW_CODE="$MOONBOW_PACIFIC_CYAN"        # Cyan for code
+export MOONBOW_LITERAL="$MOONBOW_PACIFIC_CYAN"     # Cyan for literals
+export MOONBOW_KEYWORD="$MOONBOW_DUSTY_MAUVE"      # Purple for keywords
+export MOONBOW_MARKUP="$MOONBOW_EMERALD"           # Green for markup
 
 # Status Colors
-export MOONBOW_ADDITION="#c5e478"      # Green
-export MOONBOW_DELETION="#ef5350"      # Red
-export MOONBOW_SUBSTITUTION="#a2bffc"  # Light Blue
-export MOONBOW_HIGHLIGHT="#234d70"     # Dark Blue
+export MOONBOW_ADDITION="$MOONBOW_EMERALD"         # Green for additions
+export MOONBOW_DELETION="$MOONBOW_PASTEL_RED"      # Red for deletions
+export MOONBOW_SUBSTITUTION="$MOONBOW_PACIFIC_CYAN" # Cyan for changes
+export MOONBOW_HIGHLIGHT="#234d70"                 # Dark blue highlight
+export MOONBOW_STRIKETHROUGH="$MOONBOW_WARM_GREY"  # Grey for strikethrough
 
-# Accent Colors
-export MOONBOW_ACCENT01="#82b1ff"  # Bright Blue
-export MOONBOW_ACCENT02="#3de181"  # Green
-export MOONBOW_ACCENT03="#f0d14f"  # Yellow
-export MOONBOW_ACCENT04="#ff524f"  # Red
-export MOONBOW_ACCENT05="#e89287"  # Salmon
-export MOONBOW_ACCENT06="#9a94c7"  # Purple
+# Accent Colors (reordered for prominence)
+export MOONBOW_ACCENT01="$MOONBOW_JASMINE"       # 1st: Jasmine (yellow)
+export MOONBOW_ACCENT02="$MOONBOW_DUSTY_ROSE"    # 2nd: Dusty Rose (pink)
+export MOONBOW_ACCENT03="$MOONBOW_PACIFIC_CYAN"  # 3rd: Pacific Cyan
+export MOONBOW_ACCENT04="$MOONBOW_PASTEL_RED"    # 4th: Pastel Red
+export MOONBOW_ACCENT05="$MOONBOW_EMERALD"       # 5th: Emerald
+export MOONBOW_ACCENT06="$MOONBOW_DUSTY_MAUVE"   # 6th: Dusty Mauve
 
-# Interface Colors
-export MOONBOW_TINT="#eec765"
-export MOONBOW_PROMPT_BG="#011627"
-export MOONBOW_BORDER="#122d42"
-
-# Semantic Color Mappings (for easy use)
-export MOONBOW_SUCCESS="$MOONBOW_ADDITION"
-export MOONBOW_ERROR="$MOONBOW_DELETION"
-export MOONBOW_WARNING="$MOONBOW_ACCENT03"
-export MOONBOW_INFO="$MOONBOW_LITERAL"
+# Quick Semantic Aliases
+export MOONBOW_SUCCESS="$MOONBOW_EMERALD"
+export MOONBOW_ERROR="$MOONBOW_PASTEL_RED"
+export MOONBOW_WARNING="$MOONBOW_JASMINE"
+export MOONBOW_INFO="$MOONBOW_PACIFIC_CYAN"
