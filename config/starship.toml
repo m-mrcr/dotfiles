@@ -1,0 +1,144 @@
+# Starship Configuration - Moonbow Theme (Emoji Edition)
+# By Martin Mercer
+# Featuring 🌒 waxing crescent and stoplight git colors
+
+# Timeout for commands (milliseconds)
+command_timeout = 500
+
+# Moonbow Colors:
+# Jasmine (Yellow):    #fce694  ⭐
+# Dusty Rose (Pink):   #c08081  ⭐
+# Pacific Cyan:        #2d93ad
+# Emerald (Green):     #0cce6b
+# Dusty Mauve:         #977da1
+# Warm Grey:           #a19a94
+# Pastel Red:          #ef5350
+
+# Single-line format with emoji identity
+format = """
+🌒\
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$python\
+$rust\
+$golang\
+$docker_context\
+$cmd_duration\
+$fill\
+$time\
+$line_break\
+$character"""
+
+[fill]
+symbol = " "
+
+[character]
+success_symbol = "[❯](bold #fce694)"      # Jasmine yellow when all good
+error_symbol = "[✘](bold #ef5350)"        # Pastel red on error
+vimcmd_symbol = "[❮](bold #0cce6b)"       # Emerald green in vim mode
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "…/"
+style = "bold #fce694"                     # Jasmine yellow - prominent!
+format = " [$path]($style)"
+read_only = " 󰌾"
+read_only_style = "#ef5350"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Projects" = "󰲋 "
+"Code" = " "
+"Desktop" = "🖥️ "
+
+[git_branch]
+symbol = " "
+style = "bold #2d93ad"                     # Pacific cyan for branch name
+format = " [$symbol$branch]($style)"
+
+[git_status]
+# STOPLIGHT COLORS! 🚦
+# Green = all good, Yellow = caution, Red = problems
+format = '([$all_status$ahead_behind]($style))'
+style = "bold #fce694"                     # Default yellow (caution)
+
+# Green for staged (good to go!)
+staged = "[+$count](bold #0cce6b)"
+
+# Yellow for modified/untracked (needs attention)
+modified = "[!$count](bold #fce694)"
+untracked = "[?$count](bold #fce694)"
+stashed = '[$count](bold #fce694)'
+renamed = "[»$count](bold #fce694)"
+
+# Red for conflicts/deleted (problems!)
+conflicted = "[=$count](bold #ef5350)"
+deleted = "[✘$count](bold #ef5350)"
+diverged = "[⇕](bold #ef5350)"
+
+# Ahead/behind indicators
+ahead = "[⇡$count](bold #2d93ad)"
+behind = "[⇣$count](bold #2d93ad)"
+
+[cmd_duration]
+min_time = 2000                            # Show if > 2 seconds
+style = "bold #977da1"                     # Dusty mauve
+format = " [took $duration]($style)"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "#a19a94"                          # Warm grey
+format = "[$time]($style)"
+
+# Language indicators (only show when in project)
+[nodejs]
+symbol = " "
+style = "#0cce6b"                          # Emerald
+format = " [$symbol$version]($style)"
+detect_extensions = []
+detect_files = ["package.json", ".node-version", ".nvmrc"]
+
+[python]
+symbol = " "
+style = "#2d93ad"                          # Pacific cyan
+format = " [$symbol$version]($style)"
+detect_extensions = []
+detect_files = ["requirements.txt", "pyproject.toml", ".python-version"]
+
+[rust]
+symbol = " "
+style = "#ef5350"                          # Pastel red
+format = " [$symbol$version]($style)"
+
+[golang]
+symbol = "󰟓 "
+style = "#2d93ad"                          # Pacific cyan
+format = " [$symbol$version]($style)"
+
+[docker_context]
+symbol = " "
+style = "#2d93ad"                          # Pacific cyan
+format = " [$symbol$context]($style)"
+only_with_files = true
+
+[package]
+symbol = "󰏗 "
+style = "#977da1"                          # Dusty mauve
+format = " [$symbol$version]($style)"
+
+# Battery warning (only shows when low)
+[battery]
+full_symbol = "󰁹"
+charging_symbol = "󰂄"
+discharging_symbol = "󰂃"
+[[battery.display]]
+threshold = 20
+style = "bold #ef5350"                     # Pastel red - warning!
+format = " [$symbol$percentage]($style)"
