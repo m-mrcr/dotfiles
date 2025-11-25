@@ -29,6 +29,8 @@ jobs:
 
       - name: Clone this repository
         uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
       - name: Install using Makefile
         run: |
@@ -39,7 +41,7 @@ jobs:
           fi
 
       - name: Load & verify runcom setup
-        run: source $HOME/.bash_profile
+        run: source $HOME/.zshrc
 
       - name: Run tests
         if: startsWith(matrix.os, 'macos')
