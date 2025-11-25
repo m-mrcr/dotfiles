@@ -1,38 +1,57 @@
 BREW_PREFIX=$(brew --prefix)
 
-# Bash
+# Shell-specific completions
 
-if is-executable brew; then
-  . "$BREW_PREFIX/share/bash-completion/bash_completion"
+if [ -n "$BASH_VERSION" ]; then
+  # Bash completions
+  if is-executable brew; then
+    [ -f "$BREW_PREFIX/share/bash-completion/bash_completion" ] && . "$BREW_PREFIX/share/bash-completion/bash_completion"
+  fi
+
+  # Dotfiles completion (Bash)
+  _dotfiles_completions() {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=( $(compgen -W 'clean dock duti edit help macos test update' -- $cur ) );
+  }
+  complete -o default -F _dotfiles_completions dot
+
+  # Git completion (Bash)
+  if is-executable git; then
+    [ -f "$BREW_PREFIX/etc/bash_completion.d/git-completion.bash" ] && . "$BREW_PREFIX/etc/bash_completion.d/git-completion.bash"
+  fi
+
+  # tmux completion (Bash)
+  if is-executable brew; then
+    [ -f "$BREW_PREFIX/etc/bash_completion.d/tmux" ] && . "$BREW_PREFIX/etc/bash_completion.d/tmux"
+  fi
+
+  # pnpm completion (Bash)
+  [ -f ~/.config/tabtab/bash/__tabtab.bash ] && . $HOME/.config/tabtab/bash/__tabtab.bash || true
+
+elif [ -n "$ZSH_VERSION" ]; then
+  # Zsh completions
+  autoload -Uz compinit && compinit
+
+  # Dotfiles completion (Zsh)
+  _dotfiles_completions() {
+    local -a commands
+    commands=('clean:Clean up caches' 'dock:Apply macOS Dock settings' 'duti:Set default apps' 'edit:Open dotfiles in editor' 'help:Show help' 'macos:Apply macOS defaults' 'test:Run tests' 'update:Update packages')
+    _describe 'dot commands' commands
+  }
+  compdef _dotfiles_completions dot
+
+  # Git completion (Zsh) - use Zsh's built-in git completion
+  # Already loaded by compinit
+
+  # pnpm completion (Zsh)
+  [ -f ~/.config/tabtab/zsh/__tabtab.zsh ] && . $HOME/.config/tabtab/zsh/__tabtab.zsh || true
 fi
 
-# Dotfiles
-
-_dotfiles_completions() {
-  local cur="${COMP_WORDS[COMP_CWORD]}"
-  COMPREPLY=( $(compgen -W 'clean dock duti edit help macos test update' -- $cur ) );
-}
-
-complete -o default -F _dotfiles_completions dot
-
-# npm (https://docs.npmjs.com/cli/completion)
-
+# npm completion (works for both shells)
 if is-executable npm; then
-  . <(npm completion)
-fi
-
-# Git
-
-if is-executable git; then
-  . "$BREW_PREFIX/etc/bash_completion.d/git-completion.bash"
-fi
-
-# pnpm
-
-[ -f ~/.config/tabtab/bash/__tabtab.bash ] && . $HOME/.config/tabtab/bash/__tabtab.bash || true
-
-# tmux
-
-if is-executable brew; then
-  . "$BREW_PREFIX/etc/bash_completion.d/tmux"
+  if [ -n "$BASH_VERSION" ]; then
+    . <(npm completion)
+  elif [ -n "$ZSH_VERSION" ]; then
+    . <(npm completion)
+  fi
 fi
