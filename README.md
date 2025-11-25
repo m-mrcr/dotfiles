@@ -7,7 +7,7 @@ It mainly targets macOS systems (should install on e.g. Ubuntu as well for many 
 ## Highlights
 
 - Minimal efforts to install everything, using a [Makefile](./Makefile)
-- Mostly based around Homebrew, Caskroom and Node.js, latest Bash + GNU Utils
+- Mostly based around Homebrew, Caskroom and Node.js, Zsh + GNU Utils
 - Fast and colored prompt
 - Updated macOS defaults
 - Well-organized and easy to customize
@@ -23,7 +23,7 @@ It mainly targets macOS systems (should install on e.g. Ubuntu as well for many 
 - [Mac App Store](https://apps.apple.com) (apps: [Masfile](./install/Masfile))
 - [Node.js + npm LTS](https://nodejs.org/en/download/) (packages: [npmfile](./install/npmfile))
 - [Neovim](https://neovim.io) configuration (submodule: [nvim-config](https://github.com/m-mrcr/nvim-config))
-- Latest Git, Bash, Python, GNU coreutils, curl, Ruby
+- Latest Git, Zsh, Python, GNU coreutils, curl, Ruby
 - `$EDITOR` is [GNU nano](https://www.nano-editor.org) (`$VISUAL` is `code` and Git `core.editor` is `code --wait`)
 
 ## Installation
