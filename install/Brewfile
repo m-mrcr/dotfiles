@@ -9,6 +9,7 @@ brew "eza"                  # Modern ls with icons and colors
 brew "fd"                   # Fast file finder
 brew "ripgrep"              # Fast text/code search
 brew "fzf"                  # Fuzzy finder for interactive search
+brew "yazi"                 # Terminal file manager with image preview
 brew "zoxide"               # Smarter cd command
 
 # --- Testing ---
@@ -18,6 +19,7 @@ brew "bats-core"            # Bash Automated Testing System
 brew "git"                  # Version control
 brew "gh"                   # GitHub CLI
 brew "git-delta"            # Syntax-highlighted diffs for Git
+brew "lazygit"              # Terminal UI for git commands
 brew "jq"                   # Parse and transform JSON data
 brew "python@3.13"          # Python 3.13 interpreter
 brew "node"                 # Node.js runtime
@@ -27,7 +29,6 @@ brew "stow"                 # Manage dotfiles with symlinks
 brew "starship"             # Beautiful and minimal shell prompt
 brew "tmux"                 # Terminal multiplexer (split panes/sessions)
 brew "thefuck"              # Correct mistyped shell commands
-brew "topgrade"             # Auto-update all tools
 
 # --- System & Automation ---
 brew "dockutil"             # Manage macOS Dock items via CLI
