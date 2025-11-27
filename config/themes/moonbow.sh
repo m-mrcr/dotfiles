@@ -4,19 +4,13 @@
 # Personal color selection with Dusty Rose and Jasmine prominence
 
 # Core Palette
-export MOONBOW_PACIFIC_CYAN="#2d93ad"    # Cool blue-teal
+export MOONBOW_PACIFIC_CYAN="#39F"    # Cool blue-teal
 export MOONBOW_EMERALD="#0cce6b"         # Vibrant green
-export MOONBOW_DUSTY_MAUVE="#977da1"     # Soft purple
-export MOONBOW_DUSTY_ROSE="#c08081"      # ⭐ Warm pink (prominent)
+export MOONBOW_DUSTY_MAUVE="##6B5F8A"     # Soft purple
+export MOONBOW_DUSTY_ROSE="#FFB1B3"      # ⭐ Warm pink (prominent)
 export MOONBOW_JASMINE="#fce694"         # ⭐ Soft yellow (prominent)
-
-# Additional Colors
-export MOONBOW_WARM_GREY="#a19a94"       # Neutral warm grey
 export MOONBOW_PASTEL_RED="#ef5350"      # Your original red
-
-# Base Colors
-export MOONBOW_FOREGROUND="#d6deeb"      # Soft blue-white
-export MOONBOW_BACKGROUND="#000000"      # Pure black
+export MOONBOW_WARM_GREY="#a19a94"       # Neutral warm grey
 
 # Semantic Mappings (using your custom palette)
 export MOONBOW_HEADING="$MOONBOW_JASMINE"          # Prominent yellow
