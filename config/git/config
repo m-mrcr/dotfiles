@@ -112,6 +112,7 @@
 
 [advice]
 	detachedHead = false
+	
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
