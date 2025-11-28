@@ -9,9 +9,13 @@ $time\
 $directory\
 [](bg:teal fg:maroon)\
 $git_branch\
+[](bg:peach fg:teal)\
 $git_status\
-$cmd_duration
-[╰─](fg:blue) $character"""
+$cmd_duration\
+[](fg:peach)
+[╰─](fg:blue)\
+$character\
+"""
 
 palette = 'catppuccin_mocha'
 
@@ -42,19 +46,19 @@ RedHatEnterprise = "󱄛 "
 
 [username]
 show_always = true
-style_user = "bg:blue fg:yellow"
-format = '[🧿🌔🌊 ]($style)'
+style_user = "bg:blue fg:surface0"
+format = '[🧿🌓🌊]($style)'
 disabled = false
 
 [time]
 disabled = false
 time_format = "%H:%M"
-style = "bg:yellow fg:maroon"
-format = '[ $time ]($style)'
+style = "bg:yellow fg:surface0"
+format = '[$time]($style)'
 
 [directory]
-style = "bg:maroon fg:mauve"
-format = "[ $path ]($style)"
+style = "bg:maroon fg:surface0"
+format = "[$path]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 read_only = " 󰌾"
@@ -64,19 +68,19 @@ read_only = " 󰌾"
 "Downloads" = "󰇚 "
 "Music" = "󰝚 "
 "Pictures" = " "
-"Developer" = "󰲋 "
+"Programming" = " 󰲋 "
 
 [git_branch]
 symbol = " "
-style = "bg:teal fg:flamingo"
-format = '[ $symbol$branch ]($style)'
+style = "bg:teal fg:surface0"
+format = '[$symbol$branch]($style)'
 
 [git_status]
-style = "bg:flamingo fg:crust"
-format = '([ $all_status$ahead_behind]($style))'
+style = "bg:peach fg:surface0"
+format = '([$all_status$ahead_behind]($style))'
 conflicted = "✗ "
-ahead = "⇡${count} "
-behind = "⇣${count} "
+ahead = "⇡${count}"
+behind = "⇣${count}"
 diverged = "⇕ "
 untracked = "? "
 stashed = "󰏖 "
@@ -88,7 +92,7 @@ deleted = "✘ "
 [nodejs]
 symbol = " "
 style = "bg:green fg:crust"
-format = '[ $symbol]($style)'
+format = '[$symbol ]($style)'
 
 [rust]
 symbol = " "
@@ -101,7 +105,7 @@ vimcmd_visual_symbol = '[⬅](bold fg:yellow)'
 [cmd_duration]
 show_milliseconds = false
 format = '[ took $duration ]($style)'
-style = "bg:pink fg:crust"
+style = "bg:pink fg:surface0"
 disabled = false
 min_time = 2000
 show_notifications = true
