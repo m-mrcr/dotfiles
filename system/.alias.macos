@@ -6,7 +6,9 @@ alias cpwd="pwd|tr -d '\n'|pbcopy"
 
 alias gg="$VISUAL_GIT"
 
-alias firefox="open -a /Applications/Firefox.app"
+# Open default browser
+
+alias browser="open -a /Applications/Arc.app"
 
 # Exclude macOS specific files in ZIP archives
 
