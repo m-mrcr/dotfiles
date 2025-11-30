@@ -112,7 +112,7 @@ format = '[$symbol$branch]($style)[](bg:peach fg:teal)'
 
 [git_status]
 style = "bg:peach fg:text"
-format = '([$all_status$ahead_behind]($style)[](fg:peach))'
+format = '([$all_status$ahead_behind]($style))'
 conflicted = "✗ "
 ahead = "⇡${count}"
 behind = "⇣${count}"
