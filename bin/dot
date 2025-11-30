@@ -102,7 +102,6 @@ sub_update_mas () {
 
 sub_update () {
   sub_update_mas
-  topgrade
 }
 
 sub_duti () {
