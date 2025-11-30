@@ -2,18 +2,20 @@
 
 These are my dotfiles. Take anything you want, but at your own risk.
 
-It mainly targets macOS systems (should install on e.g. Ubuntu as well for many tools, config and aliases etc).
+Supports **macOS**, **Linux**, and **Windows (via WSL2)**.
 
 ## Highlights
 
 - Minimal efforts to install everything, using a [Makefile](./Makefile)
+- Cross-platform support: macOS, Linux, and Windows (WSL2) - see [PLATFORM_SUPPORT.md](./PLATFORM_SUPPORT.md)
 - Mostly based around Homebrew, Caskroom and Node.js, Zsh + GNU Utils
 - Fast and colored prompt
 - Updated macOS defaults
 - Well-organized and easy to customize
+- **Comprehensive test suite** with 100+ tests - see [TESTING.md](./TESTING.md)
 - The installation and runcom setup is
   [tested weekly on real Ubuntu and macOS machines](https://github.com/m-mrcr/dotfiles/actions)
-  (Ventura/13, Sonomo/14, Sequoia/15) using [a GitHub Action](./.github/workflows/dotfiles-installation.yml)
+  (Ventura/13, Sonoma/14, Sequoia/15) using [a GitHub Action](./.github/workflows/dotfiles-installation.yml)
 - Supports both Apple Silicon (M-Series) and Intel chips
 
 ## Packages Overview
@@ -27,6 +29,8 @@ It mainly targets macOS systems (should install on e.g. Ubuntu as well for many 
 - `$EDITOR` is [GNU nano](https://www.nano-editor.org) (`$VISUAL` is `code` and Git `core.editor` is `code --wait`)
 
 ## Installation
+
+### macOS
 
 1. Run system updates and install the Xcode Command Line Tools (provides `git` and `make`):
    ```bash
@@ -51,6 +55,39 @@ It mainly targets macOS systems (should install on e.g. Ubuntu as well for many 
    make            # `make macos` does the same explicitly
    ```
    `make` is idempotent and executes the Homebrew, Cask, MAS, npm, cargo, stow, duti, and Bun steps.
+
+### Linux
+
+1. Install git and make:
+   ```bash
+   sudo apt-get update
+   sudo apt-get install -y git build-essential
+   ```
+
+2. Clone the repo:
+   ```bash
+   git clone --recurse-submodules <your-repo-url> ~/.dotfiles
+   cd ~/.dotfiles
+   ```
+
+3. Run the setup:
+   ```bash
+   make            # Automatically detects Linux
+   ```
+
+### Windows (WSL2)
+
+For Windows, we use a hybrid approach:
+- **Native Windows apps** (VS Code, browsers, etc.) install via `winget`
+- **Development tools** (git, shell, etc.) run in WSL2
+
+See the detailed guide: [install/windows/README.md](./install/windows/README.md)
+
+**Quick start:**
+1. Open PowerShell as Administrator on Windows
+2. Navigate to `install\windows` and run `.\setup.ps1`
+3. Open WSL2 (Ubuntu) and clone this repo
+4. Run `make` inside WSL2
 
 ### Fresh macOS Setup (after erase)
 
