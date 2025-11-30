@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Detect if running on Windows (not WSL)
+if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" || "$OSTYPE" == "cygwin" ]]; then
+  exit 0
+else
+  exit 1
+fi

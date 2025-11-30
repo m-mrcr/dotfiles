@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Detect if running inside WSL (Windows Subsystem for Linux)
+if [[ -f /proc/version ]] && grep -qi microsoft /proc/version; then
+  exit 0
+else
+  exit 1
+fi
