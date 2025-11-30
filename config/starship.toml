@@ -126,7 +126,8 @@ deleted = "✘ "
 
 [cmd_duration]
 show_milliseconds = false
-format = '([ took $duration ]($style)[](fg:pink))'
+# Start with the connector so it only appears when duration is shown
+format = '[](bg:pink fg:peach)([ took $duration ]($style)[](fg:pink))'
 style = "bg:pink fg:text"
 disabled = false
 min_time = 2000
