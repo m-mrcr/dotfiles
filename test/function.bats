@@ -13,6 +13,10 @@ FIXTURE_TEXT="foo"
 }
 
 @test "calc" {
+	# Skip if calc function not defined
+	if ! command -v calc &> /dev/null; then
+		skip "calc function not defined"
+	fi
 	ACTUAL="$(calc 1+2)"
 	EXPECTED=3
 	[ "$ACTUAL" -eq "$EXPECTED" ]
