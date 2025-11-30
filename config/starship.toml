@@ -4,9 +4,9 @@
 # PROMPT FORMAT
 # ============================================================
 format = """
-[╭─](fg:blue)\
+[╭─](fg:blue)\
 $username\
-$time\
+$battery$time\
 $directory\
 $git_branch\
 $git_status\
@@ -23,19 +23,77 @@ palette = 'catppuccin_mocha'
 
 [username]
 show_always = true
-style_user = "bg:blue fg:surface0"
-format = '[🧿 🌓 🌊 ]($style)[](bg:yellow fg:blue)'
+style_user = "bg:blue fg:text"
+format = '[🧿 🌓 🌊]($style)[](bg:yellow fg:blue)'
 disabled = false
 
 [time]
 disabled = false
 time_format = "%H:%M"
-format = '[$time]($style)[](bg:maroon fg:yellow)'
-style = "bg:yellow fg:surface0"
+format = '[$time]($style)[](bg:maroon fg:yellow)'
+style = "bg:yellow fg:text"
+
+[battery]
+format = '[$symbol]($style)[|](bg:yellow fg:yellow)'
+disabled = false
+charging_symbol = "󰂄"
+discharging_symbol = "󰂃"
+full_symbol = "󰁹"
+empty_symbol = "󰂎"
+
+[[battery.display]]
+threshold = 10
+style = "bold red bg:yellow"
+discharging_symbol = "󰂎"
+
+[[battery.display]]
+threshold = 20
+style = "bold yellow bg:yellow"
+discharging_symbol = "󰁺"
+
+[[battery.display]]
+threshold = 30
+style = "bold yellow bg:yellow"
+discharging_symbol = "󰁻"
+
+[[battery.display]]
+threshold = 40
+style = "bold yellow bg:yellow"
+discharging_symbol = "󰁼"
+
+[[battery.display]]
+threshold = 50
+style = "bold yellow bg:yellow"
+discharging_symbol = "󰁽"
+
+[[battery.display]]
+threshold = 60
+style = "bold white bg:yellow"
+discharging_symbol = "󰁾"
+
+[[battery.display]]
+threshold = 70
+style = "bold white bg:yellow"
+discharging_symbol = "󰁿"
+
+[[battery.display]]
+threshold = 80
+style = "bold white bg:yellow"
+discharging_symbol = "󰂀"
+
+[[battery.display]]
+threshold = 90
+style = "bold white bg:yellow"
+discharging_symbol = "󰂁"
+
+[[battery.display]]
+threshold = 100
+style = "bold green bg:yellow"
+discharging_symbol = "󰂂"
 
 [directory]
-style = "bg:maroon fg:surface0"
-format = "[$path]($style)[](bg:teal fg:maroon)"
+style = "bg:maroon fg:text"
+format = "[$path]($style)[](bg:teal fg:maroon)"
 truncation_length = 3
 truncation_symbol = "…/"
 read_only = " 󰌾"
@@ -44,17 +102,17 @@ read_only = " 󰌾"
 "Documents" = "󰈙 "
 "Downloads" = "󰇚 "
 "Music" = "󰝚 "
-"Pictures" = " "
+"Pictures" = " "
 "Programming" = "󰲋 "
 
 [git_branch]
-symbol = " "
-style = "bg:teal fg:surface0"
-format = '[$symbol$branch]($style)[](bg:peach fg:teal)'
+symbol = ""
+style = "bg:teal fg:text"
+format = '[$symbol$branch]($style)[](bg:peach fg:teal)'
 
 [git_status]
-style = "bg:peach fg:surface0"
-format = '([$all_status$ahead_behind]($style)[](fg:peach))'
+style = "bg:peach fg:text"
+format = '([$all_status$ahead_behind]($style)[](fg:peach))'
 conflicted = "✗ "
 ahead = "⇡${count}"
 behind = "⇣${count}"
@@ -68,8 +126,8 @@ deleted = "✘ "
 
 [cmd_duration]
 show_milliseconds = false
-format = '([ took $duration ]($style)[](fg:pink))'
-style = "bg:pink fg:surface0"
+format = '([ took $duration ]($style)[](fg:pink))'
+style = "bg:pink fg:text"
 disabled = false
 min_time = 2000
 show_notifications = true
@@ -118,11 +176,104 @@ crust = "#11111b"
 # ============================================================
 # NOTES & REFERENCES
 # ============================================================
-# Find more Nerd Font symbols: https://www.nerdfonts.com/cheat-sheet
-#
+
+# DOCUMENTATION
+# - Starship config docs: https://starship.rs/config/
+# - Available modules: https://starship.rs/config/#prompt
+# - Nerd Font symbols: https://www.nerdfonts.com/cheat-sheet
+# - Catppuccin palette: https://github.com/catppuccin/catppuccin
+
+
 # Currently used symbols:
-#   arrow_right =
-#   semi-circle decorators = ╭─ ╰─
+#   arrow_right = 
+#   arrow_left = 
+#   semi-circle_decorators_right = 
+#   semi-circle_decorator_left = 
+#   top_line_connector = ╭─
+#   bottom_line_connector = ╰─
+#   branch = 
+#   read_only = 󰌾
+#   untracked = ?
+#   stashed = 󰏖
+#   modified = !
+#   staged = +
+#   renamed = »
+#   deleted = ✘
+#   conflicted = ✗
+#   ahead = ⇡
+#   behind = ⇣
+#   diverged = ⇕
+#   prompt_success = ➜
+#   prompt_error = ➜
+#   vimcmd = ⬅
+#   vimcmd_replace_one = ⬅
+#   vimcmd_replace = ⬅
+#   vimcmd_visual = ⬅
+
+# CURRENTLY USED SYMBOLS
+#   arrow_right =   (U+E0B0)
+#   semi-circle_right =   (U+E0B4)
+#   top_line_connector = ╭─
+#   bottom_line_connector = ╰─
+#   git_branch =   (U+E725)
+#   read_only = 󰌾  (U+F033E)
+#   documents = 󰈙  (U+F0219)
+#   downloads = 󰇚  (U+F01DA)
+#   music = 󰝚  (U+F075A)
+#   pictures =   (U+F03F1)
+#   programming = 󰲋  (U+F0C8B)
+#   stashed = 󰏖  (U+F03D6)
+
+# GIT STATUS SYMBOLS
+#   conflicted = ✗  |  ahead = ⇡  |  behind = ⇣  |  diverged = ⇕
+#   untracked = ?   |  modified = !  |  staged = +
+#   renamed = »     |  deleted = ✘
+
+# CHARACTER/PROMPT SYMBOLS
+#   success = ➜  |  error = ➜  |  vim = ⬅
+
+# COLOR FLOW (Module → Next Module Background)
+#   username (blue) → time (yellow)
+#   time (yellow) → directory (maroon)
+#   directory (maroon) → git_branch (teal)
+#   git_branch (teal) → git_status (peach)
+#   git_status (peach) → closes with peach arrow (dynamic!)
+#   cmd_duration (pink) → closes with pink arrow (when shown >2s)
+
+# ADDING NEW MODULES
+# To insert a new module (e.g., nodejs, rust, python):
 #
-# To add language modules (nodejs, rust, etc), add them to the format string
-# above and configure them here with their own transition symbols.
+# 1. Add to format string in order:
+#    format = """...$directory\n$nodejs\n$git_branch..."""
+#
+# 2. Update transition arrows:
+#    [directory]
+#    format = "[$path]($style)[](bg:green fg:maroon)"  # Point to nodejs
+#
+#    [nodejs]
+#    symbol = " "
+#    style = "bg:green fg:surface0"
+#    format = '[$symbol($version)]($style)[](bg:teal fg:green)'  # Point to git_branch
+#
+# 3. Module maintains the chain: receives arrow from prev, sends arrow to next
+
+# TIME FORMAT OPTIONS
+# Current: "%H:%M" (24-hour, e.g., 14:30)
+# Alternatives:
+#   "%I:%M %p"  → 12-hour with AM/PM (2:30 PM)
+#   "%H:%M:%S"  → 24-hour with seconds (14:30:45)
+#   "%R"        → Same as %H:%M (shorthand)
+
+# COMMON CUSTOMIZATIONS
+# - Change truncation length: directory.truncation_length = 5
+# - Disable time: time.disabled = true
+# - Show hostname: add $hostname to format, configure [hostname]
+# - Add battery: add $battery to format, configure [battery]
+# - Change git symbols: modify git_status.<symbol> values
+# - Swap to 12-hour time: time_format = "%I:%M %p"
+
+# PERFORMANCE TIPS
+# - Modules only execute when in format string
+# - Parentheses () in format make module conditional (e.g., git_status)
+# - min_time threshold prevents cmd_duration showing for fast commands
+# - Use 'disabled = true' instead of removing from format (easier to toggle)
