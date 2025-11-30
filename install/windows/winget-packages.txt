@@ -1,0 +1,34 @@
+# Windows native applications to install via winget
+# Usage: Get-Content winget-packages.txt | ForEach-Object { winget install $_ }
+
+# Browsers
+# Google.Chrome
+# Mozilla.Firefox
+
+# Development Tools
+Microsoft.VisualStudioCode
+Git.Git
+GitHub.GitHubDesktop
+
+# Terminal & Shell
+Microsoft.PowerShell
+Microsoft.WindowsTerminal
+
+# Communication
+# Slack.Slack
+# Discord.Discord
+
+# Productivity
+# Notion.Notion
+
+# Media
+# VideoLAN.VLC
+
+# Developer Utilities
+# Docker.DockerDesktop
+# Postman.Postman
+
+# Notes:
+# - Uncomment lines to install those packages
+# - Add your own packages as needed
+# - WSL2 should be installed separately via: wsl --install
