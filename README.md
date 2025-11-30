@@ -2,7 +2,7 @@
 
 These are my dotfiles. Take anything you want, but at your own risk.
 
-It mainly targets macOS systems (should install on e.g. Ubuntu as well for many tools, config and aliases etc).
+It targets macOS systems, with comprehensive support for Linux and Windows Subsystem for Linux (WSL).
 
 ## Highlights
 
@@ -66,6 +66,59 @@ It mainly targets macOS systems (should install on e.g. Ubuntu as well for many 
   dot update     # refresh package managers on the new machine
   ```
 
+### Linux/WSL Installation
+
+For Linux or WSL systems:
+
+1. **Install Prerequisites** (Ubuntu/Debian):
+   ```bash
+   sudo apt-get update
+   sudo apt-get install -y git make curl wget
+   ```
+
+2. **Clone the Repository**:
+   ```bash
+   git clone --recurse-submodules https://github.com/m-mrcr/dotfiles.git ~/.dotfiles
+   cd ~/.dotfiles
+   ```
+
+3. **Install Everything**:
+
+   For regular Linux:
+   ```bash
+   make linux
+   ```
+
+   For WSL (includes WSL-specific utilities):
+   ```bash
+   make wsl
+   ```
+
+4. **Set Zsh as Default Shell** (optional):
+   ```bash
+   chsh -s $(which zsh)
+   ```
+   Then log out and log back in.
+
+#### What's Included for Linux/WSL
+
+- **Linux-specific aliases**: Package management (`update`, `install`, `remove`), system info (`cpu`, `ram`, `disk`), service management
+- **WSL-specific features**:
+  - Windows clipboard integration (`pbcopy`/`pbpaste` using `clip.exe`)
+  - Path conversion utilities (`winpath`, `linuxpath`, `wslpath`)
+  - Quick access to Windows directories (`winhome`, `downloads`, `documents`, `desktop`)
+  - Windows application launchers (`explorer`, `chrome`, `code`)
+  - Helper functions for WSL-Windows interop
+- **Homebrew for Linux**: Most CLI tools installed via Homebrew
+- **System packages**: Essential build tools, clipboard utilities, and development libraries via apt
+
+#### WSL-Specific Notes
+
+- The dotfiles automatically detect WSL and load appropriate configurations
+- Windows clipboard integration works out of the box
+- Use `wslpath -w <linux-path>` to convert paths for Windows apps
+- Access Windows files via `/mnt/c/Users/$USER/`
+
 ## Post-Installation
 
 1. Set your Git credentials:
@@ -76,7 +129,7 @@ git config --global user.email "your@email.com"
 git config --global github.user "your-github-username"
 ```
 
-2. Set macOS [Dock items](./macos/dock.sh) and [system defaults](./macos/defaults.sh):
+2. Set macOS [Dock items](./macos/dock.sh) and [system defaults](./macos/defaults.sh) (macOS only):
 
 ```sh
 dot dock

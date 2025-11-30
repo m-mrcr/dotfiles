@@ -1,0 +1,43 @@
+# Copy pwd to clipboard (using xclip if available)
+
+if command -v xclip &> /dev/null; then
+  alias cpwd="pwd | tr -d '\n' | xclip -selection clipboard"
+elif command -v wl-copy &> /dev/null; then
+  alias cpwd="pwd | tr -d '\n' | wl-copy"
+fi
+
+# Clipboard aliases for X11/Wayland
+if command -v xclip &> /dev/null; then
+  alias pbcopy="xclip -selection clipboard"
+  alias pbpaste="xclip -selection clipboard -o"
+elif command -v wl-copy &> /dev/null; then
+  alias pbcopy="wl-copy"
+  alias pbpaste="wl-paste"
+fi
+
+# Package management shortcuts
+alias update="sudo apt update && sudo apt upgrade -y"
+alias install="sudo apt install"
+alias remove="sudo apt remove"
+alias search="apt search"
+alias autoremove="sudo apt autoremove -y"
+
+# System information
+alias cpu="lscpu | grep 'Model name' | cut -d ':' -f2 | xargs"
+alias ram="free -h"
+alias disk="df -h"
+alias ports="sudo netstat -tulpn"
+
+# Service management (systemd)
+alias services="systemctl list-units --type=service"
+alias service-status="systemctl status"
+alias service-start="sudo systemctl start"
+alias service-stop="sudo systemctl stop"
+alias service-restart="sudo systemctl restart"
+alias service-enable="sudo systemctl enable"
+alias service-disable="sudo systemctl disable"
+
+# Open file manager
+if command -v xdg-open &> /dev/null; then
+  alias open="xdg-open"
+fi

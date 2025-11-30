@@ -1,0 +1,72 @@
+# WSL-specific functions
+
+# Convert Windows path to WSL path
+function w2l() {
+  wslpath -u "$1"
+}
+
+# Convert WSL path to Windows path
+function l2w() {
+  wslpath -w "$1"
+}
+
+# Open file or directory in Windows Explorer
+function winopen() {
+  if [[ -z "$1" ]]; then
+    explorer.exe .
+  else
+    explorer.exe "$(wslpath -w "$1")"
+  fi
+}
+
+# Open file with default Windows application
+function wslopen() {
+  local file="$1"
+  if [[ -z "$file" ]]; then
+    echo "Usage: wslopen <file>"
+    return 1
+  fi
+
+  if [[ ! -e "$file" ]]; then
+    echo "File not found: $file"
+    return 1
+  fi
+
+  # Convert to Windows path and open
+  cmd.exe /c start "" "$(wslpath -w "$file")" 2>/dev/null
+}
+
+# Run Windows command and clean up output
+function wincmd() {
+  "$@" 2>&1 | sed 's/\r$//'
+}
+
+# Get Windows IP address
+function winip() {
+  ipconfig.exe | grep -A 4 'WSL' | grep 'IPv4' | cut -d ':' -f2 | tr -d ' \r'
+}
+
+# Get WSL IP address
+function wslip() {
+  ip addr show eth0 | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1
+}
+
+# Quick sync of files to Windows
+function sync-to-windows() {
+  local source="$1"
+  local dest="$2"
+
+  if [[ -z "$source" ]] || [[ -z "$dest" ]]; then
+    echo "Usage: sync-to-windows <source> <windows-destination>"
+    echo "Example: sync-to-windows ~/project /mnt/c/Users/\$USER/Documents/project"
+    return 1
+  fi
+
+  rsync -avz --progress "$source" "$dest"
+}
+
+# Launch VS Code in Windows from WSL directory
+function vscode() {
+  local target="${1:-.}"
+  code.exe "$(wslpath -w "$target")"
+}

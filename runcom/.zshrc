@@ -31,6 +31,20 @@ if is-macos; then
   done
 fi
 
+# Source Linux-specific files
+if is-linux; then
+  for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function}.linux; do
+    [ -f "$DOTFILE" ] && . "$DOTFILE"
+  done
+fi
+
+# Source WSL-specific files (WSL is also Linux, so this is additive)
+if is-wsl; then
+  for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function}.wsl; do
+    [ -f "$DOTFILE" ] && . "$DOTFILE"
+  done
+fi
+
 # Wrap up
 
 unset CURRENT_SCRIPT SCRIPT_PATH DOTFILE

@@ -17,14 +17,17 @@ all: $(OS)
 
 macos: sudo core-macos packages link duti bun
 
-linux: core-linux link bun
+linux: core-linux linux-packages link bun
+
+wsl: core-linux linux-packages wsl-setup link bun
 
 core-macos: brew git npm
 
 core-linux:
-	apt-get update
-	apt-get upgrade -y
-	apt-get dist-upgrade -f
+	sudo apt-get update
+	sudo apt-get upgrade -y
+	sudo apt-get dist-upgrade -f
+	sudo apt-get install -y build-essential curl wget git zsh stow
 
 stow-macos: brew
 	is-executable stow || brew install stow
@@ -90,6 +93,26 @@ duti:
 
 bun:
   curl -fsSL https://bun.sh/install | bash
+
+linux-packages: brew-packages
+	# Homebrew for Linux handles most packages
+	# Install additional Linux-specific packages via apt if needed
+	@if [ -f $(DOTFILES_DIR)/install/Aptfile ]; then \
+		sudo apt-get install -y $$(cat $(DOTFILES_DIR)/install/Aptfile); \
+	fi
+
+wsl-setup:
+	# WSL-specific setup
+	@echo "Setting up WSL-specific configuration..."
+	# Install wslu for WSL utilities (wslview, wslpath, etc.)
+	@if ! is-executable wslview; then \
+		sudo apt-get install -y wslu; \
+	fi
+	# Install xclip or wl-clipboard for clipboard support
+	@if ! is-executable xclip && ! is-executable wl-copy; then \
+		sudo apt-get install -y xclip; \
+	fi
+	@echo "WSL setup complete!"
 
 test:
 	bats test

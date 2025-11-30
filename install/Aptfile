@@ -1,0 +1,79 @@
+# Essential Linux packages not provided by Homebrew
+# These are Ubuntu/Debian-specific packages
+
+# Clipboard utilities
+xclip
+wl-clipboard
+
+# WSL utilities (for WSL systems)
+wslu
+
+# System utilities
+software-properties-common
+apt-transport-https
+ca-certificates
+gnupg
+lsb-release
+
+# Development tools
+build-essential
+pkg-config
+autoconf
+automake
+libtool
+
+# Network tools
+net-tools
+iputils-ping
+dnsutils
+traceroute
+
+# System monitoring
+htop
+iotop
+sysstat
+
+# Compression tools
+zip
+unzip
+p7zip-full
+p7zip-rar
+
+# File system utilities
+tree
+ncdu
+rsync
+
+# Text editors (fallback if not using Homebrew)
+vim
+nano
+
+# Terminal multiplexer
+tmux
+
+# Shell
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+
+# Version control
+git
+
+# Python development
+python3
+python3-pip
+python3-venv
+
+# Libraries for building software
+libssl-dev
+libffi-dev
+libxml2-dev
+libxslt1-dev
+libreadline-dev
+zlib1g-dev
+libbz2-dev
+libsqlite3-dev
+libncurses5-dev
+libgdbm-dev
+liblzma-dev
+tk-dev

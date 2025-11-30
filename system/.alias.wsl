@@ -1,0 +1,40 @@
+# WSL-specific aliases
+
+# Windows clipboard integration
+alias pbcopy="clip.exe"
+alias pbpaste="powershell.exe -command 'Get-Clipboard' | sed 's/\r$//' "
+
+# Copy pwd to clipboard (Windows-style path)
+alias cpwd="wslpath -w . | tr -d '\n' | clip.exe"
+alias cpwdlinux="pwd | tr -d '\n' | clip.exe"
+
+# Open Windows Explorer in current directory
+alias explorer="explorer.exe ."
+alias exp="explorer.exe"
+
+# Windows applications
+alias chrome="/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe"
+alias code="/mnt/c/Users/\$USER/AppData/Local/Programs/Microsoft\ VS\ Code/Code.exe"
+
+# Path conversion utilities
+alias winpath="wslpath -w"
+alias linuxpath="wslpath -u"
+
+# Quick access to Windows user directory
+export WINHOME="/mnt/c/Users/\$USER"
+alias winhome="cd \$WINHOME"
+alias downloads="cd \$WINHOME/Downloads"
+alias documents="cd \$WINHOME/Documents"
+alias desktop="cd \$WINHOME/Desktop"
+
+# Windows commands with .exe
+alias ipconfig="ipconfig.exe"
+alias netstat="netstat.exe"
+alias tasklist="tasklist.exe"
+alias taskkill="taskkill.exe"
+
+# Open files with default Windows application
+alias open="wslview"
+
+# Restart WSL (from within WSL)
+alias wsl-restart="wsl.exe --shutdown"
