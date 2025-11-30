@@ -1,5 +1,11 @@
 DOTFILES_DIR := $(CURDIR)
-OS := $(shell bin/is-supported bin/is-macos macos linux)
+# Detect OS: macos, linux, or wsl
+IS_WSL := $(shell bin/is-wsl && echo true || echo false)
+ifeq ($(IS_WSL),true)
+	OS := wsl
+else
+	OS := $(shell bin/is-supported bin/is-macos macos linux)
+endif
 HOMEBREW_PREFIX := $(shell bin/is-supported bin/is-macos $(shell bin/is-supported bin/is-arm64 /opt/homebrew /usr/local) /home/linuxbrew/.linuxbrew)
 export N_PREFIX = $(HOME)/.n
 PATH := $(HOMEBREW_PREFIX)/bin:$(DOTFILES_DIR)/bin:$(N_PREFIX)/bin:$(PATH)
@@ -19,6 +25,8 @@ macos: sudo core-macos packages link duti bun
 
 linux: core-linux link bun
 
+wsl: core-wsl link bun
+
 core-macos: brew git npm
 
 core-linux:
@@ -26,11 +34,23 @@ core-linux:
 	apt-get upgrade -y
 	apt-get dist-upgrade -f
 
+core-wsl:
+	@echo "→ Setting up WSL2 environment..."
+	@echo "→ Installing essential packages..."
+	sudo apt-get update
+	sudo apt-get upgrade -y
+	sudo apt-get install -y build-essential curl git
+	@echo "→ Installing Homebrew for Linux..."
+	@is-executable brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 stow-macos: brew
 	is-executable stow || brew install stow
 
 stow-linux: core-linux
 	is-executable stow || apt-get -y install stow
+
+stow-wsl:
+	@is-executable stow || brew install stow
 
 sudo:
 ifndef GITHUB_ACTION
@@ -44,19 +64,51 @@ submodules:
 	git submodule update --init --recursive
 
 link: stow-$(OS) submodules
-	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE -a ! -h $(HOME)/$$FILE ]; then \
-		mv -v $(HOME)/$$FILE{,.bak}; fi; done
-	mkdir -p "$(XDG_CONFIG_HOME)"
-	stow -t "$(HOME)" runcom
-	stow -t "$(XDG_CONFIG_HOME)" config
-	mkdir -p $(HOME)/.local/runtime
-	chmod 700 $(HOME)/.local/runtime
+	@echo "→ Backing up existing runcom files..."
+	@find runcom -mindepth 1 -maxdepth 1 -print0 | while IFS= read -r -d '' FILE; do \
+		TARGET="$(HOME)/$${FILE##*/}"; \
+		if [ -f "$$TARGET" ] && [ ! -h "$$TARGET" ]; then \
+			mv -v "$$TARGET" "$$TARGET.bak"; \
+		fi; \
+	done
+	@echo "→ Creating config directory..."
+	@mkdir -p "$(XDG_CONFIG_HOME)"
+	@echo "→ Backing up existing config directories..."
+	@find config -mindepth 1 -maxdepth 1 -print0 | while IFS= read -r -d '' FILE; do \
+		TARGET="$(XDG_CONFIG_HOME)/$${FILE##*/}"; \
+		if [ -e "$$TARGET" ] && [ ! -h "$$TARGET" ]; then \
+			mv -v "$$TARGET" "$$TARGET.bak"; \
+		fi; \
+	done
+	@echo "→ Symlinking runcom files to home directory..."
+	@stow -t "$(HOME)" runcom
+	@echo "→ Symlinking config files to ~/.config..."
+	@stow -t "$(XDG_CONFIG_HOME)" config
+	@echo "→ Creating runtime directory..."
+	@mkdir -p $(HOME)/.local/runtime
+	@chmod 700 $(HOME)/.local/runtime
+	@echo "✓ Dotfiles linked successfully!"
 
 unlink: stow-$(OS)
-	stow --delete -t "$(HOME)" runcom
-	stow --delete -t "$(XDG_CONFIG_HOME)" config
-	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE.bak ]; then \
-		mv -v $(HOME)/$$FILE.bak $(HOME)/$${FILE%%.bak}; fi; done
+	@echo "→ Removing runcom symlinks..."
+	@stow --delete -t "$(HOME)" runcom
+	@echo "→ Removing config symlinks..."
+	@stow --delete -t "$(XDG_CONFIG_HOME)" config
+	@echo "→ Restoring runcom backups..."
+	@find runcom -mindepth 1 -maxdepth 1 -print0 | while IFS= read -r -d '' FILE; do \
+		TARGET="$(HOME)/$${FILE##*/}"; \
+		if [ -f "$$TARGET.bak" ]; then \
+			mv -v "$$TARGET.bak" "$$TARGET"; \
+		fi; \
+	done
+	@echo "→ Restoring config backups..."
+	@find config -mindepth 1 -maxdepth 1 -print0 | while IFS= read -r -d '' FILE; do \
+		TARGET="$(XDG_CONFIG_HOME)/$${FILE##*/}"; \
+		if [ -e "$$TARGET.bak" ]; then \
+			mv -v "$$TARGET.bak" "$$TARGET"; \
+		fi; \
+	done
+	@echo "✓ Dotfiles unlinked and backups restored!"
 
 brew:
 	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
@@ -92,4 +144,32 @@ bun:
   curl -fsSL https://bun.sh/install | bash
 
 test:
-	bats test
+	@echo "→ Running dotfiles test suite..."
+	@if command -v bats >/dev/null 2>&1; then \
+		./test/run-tests.sh; \
+	else \
+		echo "✗ bats not found. Install it first:"; \
+		echo "  macOS:  brew install bats-core"; \
+		echo "  Linux:  sudo apt-get install bats"; \
+		exit 1; \
+	fi
+
+test-quick:
+	@echo "→ Running quick tests (bin + platform only)..."
+	@bats test/bin.bats test/platform.bats
+
+test-symlinks:
+	@echo "→ Testing symlink configuration..."
+	@bats test/symlinks.bats
+
+test-packages:
+	@echo "→ Testing package installations..."
+	@bats test/packages.bats
+
+test-compatibility:
+	@echo "→ Testing cross-platform compatibility..."
+	@bats test/compatibility.bats
+
+test-makefile:
+	@echo "→ Testing Makefile targets..."
+	@bats test/makefile.bats
