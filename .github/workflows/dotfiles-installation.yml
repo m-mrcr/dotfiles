@@ -9,8 +9,9 @@ jobs:
   install:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        os: [macos-13, macos-14, macos-15]
+        os: [macos-13, macos-14, macos-15, ubuntu-22.04, ubuntu-24.04]
 
     steps:
       - name: Clean up installed software
@@ -43,6 +44,20 @@ jobs:
       - name: Load & verify runcom setup
         run: source $HOME/.zshrc
 
+      - name: Install bats for testing
+        run: |
+          if [ "$RUNNER_OS" == "macOS" ]; then
+            brew install bats-core
+          else
+            sudo apt-get update
+            sudo apt-get install -y bats
+          fi
+
       - name: Run tests
-        if: startsWith(matrix.os, 'macos')
         run: make test
+
+      - name: Verify symlinks
+        run: make test-symlinks
+
+      - name: Test cross-platform compatibility
+        run: make test-compatibility
