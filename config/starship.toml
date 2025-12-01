@@ -6,7 +6,7 @@
 format = """
 [╭─](fg:blue)\
 $username\
-$battery$time\
+$time\
 $directory\
 $git_branch\
 $git_status\
@@ -33,64 +33,6 @@ time_format = "%H:%M"
 format = '[$time]($style)[](bg:maroon fg:yellow)'
 style = "bg:yellow fg:text"
 
-[battery]
-format = '[$symbol]($style)[|](bg:yellow fg:yellow)'
-disabled = false
-charging_symbol = "󰂄"
-discharging_symbol = "󰂃"
-full_symbol = "󰁹"
-empty_symbol = "󰂎"
-
-[[battery.display]]
-threshold = 10
-style = "bold red bg:yellow"
-discharging_symbol = "󰂎"
-
-[[battery.display]]
-threshold = 20
-style = "bold yellow bg:yellow"
-discharging_symbol = "󰁺"
-
-[[battery.display]]
-threshold = 30
-style = "bold yellow bg:yellow"
-discharging_symbol = "󰁻"
-
-[[battery.display]]
-threshold = 40
-style = "bold yellow bg:yellow"
-discharging_symbol = "󰁼"
-
-[[battery.display]]
-threshold = 50
-style = "bold yellow bg:yellow"
-discharging_symbol = "󰁽"
-
-[[battery.display]]
-threshold = 60
-style = "bold white bg:yellow"
-discharging_symbol = "󰁾"
-
-[[battery.display]]
-threshold = 70
-style = "bold white bg:yellow"
-discharging_symbol = "󰁿"
-
-[[battery.display]]
-threshold = 80
-style = "bold white bg:yellow"
-discharging_symbol = "󰂀"
-
-[[battery.display]]
-threshold = 90
-style = "bold white bg:yellow"
-discharging_symbol = "󰂁"
-
-[[battery.display]]
-threshold = 100
-style = "bold green bg:yellow"
-discharging_symbol = "󰂂"
-
 [directory]
 style = "bg:maroon fg:text"
 format = "[$path]($style)[](bg:teal fg:maroon)"
@@ -112,7 +54,7 @@ format = '[$symbol$branch]($style)[](bg:peach fg:teal)'
 
 [git_status]
 style = "bg:peach fg:text"
-format = '([$all_status$ahead_behind]($style)[](fg:peach))'
+format = '([$all_status$ahead_behind]($style)[](fg:peach bg:base))'
 conflicted = "✗ "
 ahead = "⇡${count}"
 behind = "⇣${count}"
@@ -127,7 +69,7 @@ deleted = "✘ "
 [cmd_duration]
 show_milliseconds = false
 # Start with the connector so it only appears when duration is shown
-format = '[](bg:pink fg:peach)([ took $duration ]($style)[](fg:pink))'
+format = '[](bg:pink fg:base)([ took $duration ]($style)[](fg:pink))'
 style = "bg:pink fg:text"
 disabled = false
 min_time = 2000
