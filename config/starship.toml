@@ -6,12 +6,17 @@
 format = """
 [╭─](fg:blue)\
 $username\
-$time\
+[](bg:yellow fg:blue)\
 $directory\
+[](bg:maroon fg:yellow)\
 $git_branch\
+[](bg:teal fg:maroon)\
 $git_status\
-$cmd_duration
-[╰─](fg:blue)\
+[](bg:mauve fg:teal)\
+$cmd_duration\
+[](bg:flamingo fg:mauve)\
+$time\
+[](fg:flamingo)
 $character\
 """
 
@@ -24,18 +29,12 @@ palette = 'catppuccin_mocha'
 [username]
 show_always = true
 style_user = "bg:blue fg:text"
-format = '[🧿 🌓 🌊]($style)[](bg:yellow fg:blue)'
+format = '[🧿 🌓 🌊 ]($style)'
 disabled = false
-
-[time]
-disabled = false
-time_format = "%H:%M"
-format = '[$time]($style)[](bg:maroon fg:yellow)'
-style = "bg:yellow fg:text"
 
 [directory]
-style = "bg:maroon fg:text"
-format = "[$path]($style)[](bg:teal fg:maroon)"
+style = "bg:yellow fg:text"
+format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 read_only = " 󰌾"
@@ -49,12 +48,12 @@ read_only = " 󰌾"
 
 [git_branch]
 symbol = ""
-style = "bg:teal fg:text"
-format = '[$symbol$branch]($style)[](bg:peach fg:teal)'
+style = "bg:maroon fg:text"
+format = '([ $symbol$branch ]($style))'
 
 [git_status]
-style = "bg:peach fg:text"
-format = '([$all_status$ahead_behind]($style)[](fg:peach bg:base))'
+style = "bg:teal fg:text"
+format = '([ $all_status$ahead_behind ]($style))'
 conflicted = "✗ "
 ahead = "⇡${count}"
 behind = "⇣${count}"
@@ -69,20 +68,26 @@ deleted = "✘ "
 [cmd_duration]
 show_milliseconds = false
 # Start with the connector so it only appears when duration is shown
-format = '[](bg:pink fg:base)([ took $duration ]($style)[](fg:pink))'
-style = "bg:pink fg:text"
+format = '([ took $duration ]($style))'
+style = "bg:mauve fg:text"
 disabled = false
 min_time = 2000
 show_notifications = true
 min_time_to_notify = 45000
 
+[time]
+disabled = false
+time_format = "%H:%M"
+format = '[ ⏳︎$time ]($style)'
+style = "bg:flamingo fg:text"
+
 [character]
-success_symbol = '[➜](bold fg:green)'
-error_symbol = '[➜](bold fg:red)'
-vimcmd_symbol = '[⬅](bold fg:green)'
-vimcmd_replace_one_symbol = '[⬅](bold fg:mauve)'
-vimcmd_replace_symbol = '[⬅](bold fg:mauve)'
-vimcmd_visual_symbol = '[⬅](bold fg:yellow)'
+success_symbol = '[╰─➜](bold fg:green)'
+error_symbol = '[╰─➜](bold fg:red)'
+vimcmd_symbol = '[╰─⬅](bold fg:green)'
+vimcmd_replace_one_symbol = '[╰─⬅](bold fg:mauve)'
+vimcmd_replace_symbol = '[╰─⬅](bold fg:mauve)'
+vimcmd_visual_symbol = '[╰─⬅](bold fg:yellow)'
 
 # ============================================================
 # COLOR PALETTE (Catppuccin Mocha)
