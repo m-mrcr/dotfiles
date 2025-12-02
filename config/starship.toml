@@ -29,7 +29,7 @@ palette = 'catppuccin_mocha'
 [username]
 show_always = true
 style_user = "bg:blue fg:text"
-format = '[🧿 🌓 🌊 ]($style)'
+format = '[🧿🌓 🌊 ]($style)'
 disabled = false
 
 [directory]
@@ -43,7 +43,7 @@ read_only = " 󰌾"
 "Documents" = "󰈙 "
 "Downloads" = "󰇚 "
 "Music" = "󰝚 "
-"Pictures" = " "
+"Pictures" = " "
 "Programming" = "󰲋 "
 
 [git_branch]
