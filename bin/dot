@@ -101,7 +101,41 @@ sub_update_mas () {
 }
 
 sub_update () {
+  echo "―― Homebrew ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"
+  brew update
+  brew upgrade
+  brew upgrade --cask
+
+  echo "―― Rust (cargo) ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"
+  if command -v cargo &> /dev/null; then
+    if command -v cargo-install-update &> /dev/null; then
+      cargo install-update -a
+    else
+      echo "cargo-install-update not found. Install with: cargo install cargo-update"
+    fi
+  fi
+
+  echo "―― Python (pip3) ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"
+  if command -v pip3 &> /dev/null; then
+    pip3 list --outdated --format=json | jq -r '.[] | .name' | xargs -n1 pip3 install -U
+  fi
+
+  echo "―― npm ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"
+  if command -v npm &> /dev/null; then
+    npm update -g
+  fi
+
+  echo "―― Ruby (gem) ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"
+  if command -v gem &> /dev/null; then
+    gem update --system
+    gem update
+  fi
+
+  echo "―― Mac App Store ――――――――――――――――――――――――――――――――――――――――――――――――――――――――"
   sub_update_mas
+
+  echo "―― macOS System ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――"
+  softwareupdate -i -a
 }
 
 sub_duti () {
