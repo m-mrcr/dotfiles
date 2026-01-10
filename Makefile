@@ -87,9 +87,20 @@ link: stow-$(OS) submodules
 	@echo "→ Creating runtime directory..."
 	@mkdir -p $(HOME)/.local/runtime
 	@chmod 700 $(HOME)/.local/runtime
+	@echo "→ Creating Programming symlink..."
+	@if [ -d "$(HOME)/Documents/02 Areas/02 Programming" ]; then \
+		ln -sfn "$(HOME)/Documents/02 Areas/02 Programming" "$(HOME)/Programming"; \
+		echo "✓ Programming symlink created"; \
+	else \
+		echo "⚠ Warning: Programming directory not found at ~/Documents/02 Areas/02 Programming"; \
+	fi
 	@echo "✓ Dotfiles linked successfully!"
 
 unlink: stow-$(OS)
+	@echo "→ Removing Programming symlink..."
+	@if [ -L "$(HOME)/Programming" ]; then \
+		rm -v "$(HOME)/Programming"; \
+	fi
 	@echo "→ Removing runcom symlinks..."
 	@stow --delete -t "$(HOME)" runcom
 	@echo "→ Removing config symlinks..."

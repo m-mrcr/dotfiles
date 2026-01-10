@@ -28,12 +28,12 @@ palette = 'catppuccin_mocha'
 
 [username]
 show_always = true
-style_user = "bg:blue fg:text"
+style_user = "bg:blue fg:plop"
 format = '[🧿 🌓 🌊 ]($style)'
 disabled = false
 
 [directory]
-style = "bg:yellow fg:text"
+style = "bg:yellow fg:plop"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -48,11 +48,11 @@ read_only = " 󰌾"
 
 [git_branch]
 symbol = ""
-style = "bg:maroon fg:text"
+style = "bg:maroon fg:plop"
 format = '([ $symbol$branch ]($style))'
 
 [git_status]
-style = "bg:teal fg:text"
+style = "bg:teal fg:plop"
 format = '([ $all_status$ahead_behind ]($style))'
 conflicted = "✗ "
 ahead = "⇡${count}"
@@ -69,7 +69,7 @@ deleted = "✘ "
 show_milliseconds = false
 # Start with the connector so it only appears when duration is shown
 format = '([ took $duration ]($style))'
-style = "bg:mauve fg:text"
+style = "bg:mauve fg:plop"
 disabled = false
 min_time = 2000
 show_notifications = true
@@ -79,7 +79,7 @@ min_time_to_notify = 45000
 disabled = false
 time_format = "%H:%M"
 format = '[ ⏳︎$time ]($style)'
-style = "bg:flamingo fg:text"
+style = "bg:flamingo fg:plop"
 
 [character]
 success_symbol = '[╰─➜](bold fg:green)'
@@ -120,6 +120,7 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+plop = "#60574e"
 
 # ============================================================
 # NOTES & REFERENCES
